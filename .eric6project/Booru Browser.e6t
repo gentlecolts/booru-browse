@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
+<!-- eric6 tasks file for project Booru Browser -->
+<!-- Saved: 2017-08-08, 22:30:19 -->
+<Tasks version="6.0">
+  <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="1" uid="{a75467de-5df4-45e9-8e52-468b8f4c5755}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-08, 22:10:45</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>22</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{2b64bb96-3007-45a8-b709-661eb07c6b5d}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-08, 22:10:45</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>26</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{eab1c1b3-25e1-493a-a301-02ce95505606}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-08, 22:10:45</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>30</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{6c86e745-ffbc-4616-9dc1-0c08af8c6275}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-08, 22:10:45</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>39</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{828a556d-14f3-49ec-a341-e79e7089942f}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-08, 22:10:45</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>43</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{c81e780c-5866-4ad5-bcd0-fc0357d3111d}">
+    <Summary>TODO: load blacklist (when site is set?)</Summary>
+    <Description></Description>
+    <Created>2017-08-08, 22:10:45</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>44</Linenumber>
+    </Resource>
+  </Task>
+</Tasks>
