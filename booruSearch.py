@@ -3,10 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from tagContainer import tagBox
-
-class booruLister(Gtk.ComboBoxText):
-	def __init__(self):
-		super(booruLister, self).__init__()
+from listBoorus import booruLister
 
 class searchWidget(Gtk.Box):
 	"""search bar"""
@@ -16,6 +13,8 @@ class searchWidget(Gtk.Box):
 		
 		buttonRow=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 		
+		self.booruWidget=booruWidget
+		
 		#search related buttons
 		self.searchbar=Gtk.SearchEntry()
 		buttonRow.pack_start(self.searchbar, expand=True, fill=True, padding=0)
@@ -24,10 +23,19 @@ class searchWidget(Gtk.Box):
 		searchbutton=Gtk.Button(label="Update Search")
 		buttonRow.pack_start(searchbutton, expand=False, fill=True, padding=0)
 		#TODO: attach event listeners
+		def updateSearch(button):
+			newtags=self.searchbar.get_text().split()
+			self.searchbar.set_text("")
+			self.tags.addTags(newtags)
+		searchbutton.connect("clicked", updateSearch)
 		
 		resetbutton=Gtk.Button(label="Reset Search")
 		buttonRow.pack_start(resetbutton, expand=False, fill=True, padding=0)
 		#TODO: attach event listeners
+		def resetSearch(button):
+			self.tags.clear()
+		resetbutton.connect("clicked", resetSearch)
+		#resetbutton.set_sensitive(False)#TODO: remove this when button works
 		
 		#some spacing
 		spacer=Gtk.Fixed()
@@ -42,11 +50,18 @@ class searchWidget(Gtk.Box):
 		buttonRow.pack_start(blocklister, expand=False, fill=True, padding=0)
 		#TODO: attach event listeners
 		#TODO: load blacklist (when site is set?)
+		blocklister.set_sensitive(False)#TODO: remove this when button works
 		
 		login=Gtk.Button(label="Login")
 		buttonRow.pack_start(login, expand=False, fill=True, padding=0)
+		#TODO: attach event listeners
+		#TODO: what login info can be stored securely (username? tokens?)?
+		login.set_sensitive(False)#TODO: remove this when button works
 		
 		self.add(buttonRow)
 		
-		self.tags=gtk
+		self.tags=tagBox(self)
 		self.add(self.tags)
+		
+		#alias this for convenience
+		self.tagsAsString=self.tags.tagsAsString

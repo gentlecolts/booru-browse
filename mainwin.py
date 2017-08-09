@@ -22,8 +22,9 @@ class booruView(Gtk.Box):
 		
 		self.post=postView(self)
 	
-	def updateSearch(self, newtags=None):
+	def updateSearch(self):
 		"""add new search terms and update the view"""
+		print("new search terms:", self.search.tagsAsString())
 	
 	def openImage(self, imagedic):
 		"swap over to "
