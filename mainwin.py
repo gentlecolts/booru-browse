@@ -8,11 +8,9 @@ from postView import postView
 
 class booruView(Gtk.Box):
 	"""Viewer for boorus"""
-	def __init__(self, booruClient):
+	def __init__(self):
 		"""set everything up"""
 		super(booruView, self).__init__(orientation=Gtk.Orientation.VERTICAL)
-		
-		self.client=booruClient
 		
 		self.search=searchWidget(self)
 		self.pack_start(self.search, expand=False, fill=True, padding=0)
