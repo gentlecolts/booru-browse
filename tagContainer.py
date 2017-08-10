@@ -3,7 +3,6 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import Gdk
 
-
 active_color=Gdk.RGBA(105.0/255,229.0/255,92.0/255, 1)
 negate_color=Gdk.RGBA(229.0/255,92.0/255,105.0/255, 1)
 
@@ -82,6 +81,8 @@ class tagBox(Gtk.Grid):
 		self.show_all()
 		#need to display everything
 		self.parent.booruWidget.updateSearch()
+		
+		
 			
 	def addTags(self, tags):
 		for tag in tags:

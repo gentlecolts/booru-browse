@@ -1,106 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-09, 16:24:46 -->
+<!-- Saved: 2017-08-09, 22:42:43 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{99792d51-9f53-45a8-86e9-0bba9251f8fa}">
+  <Task priority="1" completed="False" type="1" uid="{ce04bb97-3707-48e6-8bf2-4ff0850fb0b6}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>21</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{aff1b4da-8f64-4c35-a4bc-b6de2863ff47}">
+  <Task priority="1" completed="False" type="1" uid="{fba128ff-40c1-4d6d-b064-aa88a0612459}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>25</Linenumber>
+      <Linenumber>44</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{535abe1b-895c-4c92-b419-dbf906d0698c}">
+  <Task priority="1" completed="False" type="1" uid="{9c3eb13a-61b7-42a0-a1e9-bbd5df33dff5}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>34</Linenumber>
+      <Linenumber>48</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{f8f83a38-d518-43f1-a26f-72fe6d2894ed}">
-    <Summary>TODO: remove this when button works</Summary>
-    <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>38</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{76019829-8dfe-48c2-a803-14c05c37f6f4}">
-    <Summary>TODO: attach event listeners</Summary>
-    <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>47</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{b81ae9a9-f885-4b28-bb36-84441e03a571}">
-    <Summary>TODO: attach event listeners</Summary>
-    <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>51</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{14583d3b-6b8d-4ff5-848e-cb11f75072f2}">
+  <Task priority="1" completed="False" type="1" uid="{f6a4c208-c30f-4acf-9d68-3f6f74bbf00a}">
     <Summary>TODO: load blacklist (when site is set?)</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>52</Linenumber>
+      <Linenumber>49</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{93de317c-be84-4d05-81da-b14c3189bfda}">
+  <Task priority="1" completed="False" type="1" uid="{41429095-f6ad-4b27-8718-36fb3e9218d2}">
     <Summary>TODO: remove this when button works</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>53</Linenumber>
+      <Linenumber>50</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{ce60f85e-7d61-4fda-97fc-9df205eae3b5}">
+  <Task priority="1" completed="False" type="1" uid="{cf69b288-dea5-4852-b773-3c28da8d2bcd}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>57</Linenumber>
+      <Linenumber>54</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{8c725bfe-e553-4033-89f4-d8bb89f4d206}">
+  <Task priority="1" completed="False" type="1" uid="{aeb80530-7ed9-4a75-a7b4-8c50e8f6e061}">
     <Summary>TODO: what login info can be stored securely (username? tokens?)?</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>58</Linenumber>
+      <Linenumber>55</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{46106f33-cc5d-4655-9e28-5383d38e3fed}">
+  <Task priority="1" completed="False" type="1" uid="{e3bf9438-6692-484a-a0f6-d88a2c02d50a}">
     <Summary>TODO: remove this when button works</Summary>
     <Description></Description>
-    <Created>2017-08-09, 16:08:18</Created>
+    <Created>2017-08-09, 21:33:21</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>59</Linenumber>
+      <Linenumber>56</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{5805f68b-be86-4702-aa61-16ecd3580770}">
+    <Summary>TODO: username/password/tokens/etc</Summary>
+    <Description></Description>
+    <Created>2017-08-09, 21:44:32</Created>
+    <Resource>
+      <Filename>listBoorus.py</Filename>
+      <Linenumber>37</Linenumber>
     </Resource>
   </Task>
 </Tasks>

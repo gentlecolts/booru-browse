@@ -5,6 +5,7 @@ from gi.repository import Gtk
 from booruSearch import searchWidget
 from tileView import tileView
 from postView import postView
+from errorReport import alert
 
 class booruView(Gtk.Box):
 	"""Viewer for boorus"""
@@ -23,6 +24,11 @@ class booruView(Gtk.Box):
 	def updateSearch(self):
 		"""add new search terms and update the view"""
 		print("new search terms:", self.search.tagsAsString())
+		try:
+			#pass the client and new query to the tileView
+			""""""
+		except Exception as e:
+			alert(self, str(e))
 	
 	def openImage(self, imagedic):
 		"swap over to "

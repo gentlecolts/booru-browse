@@ -3,6 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 import pybooru
+from Vinebooru import Vinebooru
 
 class booruLister(Gtk.ComboBoxText):
 	def __init__(self):
@@ -23,9 +24,23 @@ class booruLister(Gtk.ComboBoxText):
 				self.append_text(booru)
 			else:#a list
 				self.append_text(booru[0])
-		booru=None
+		self.booru=None
 		
 		self.connect("changed", self.setBooru)
 	
 	def setBooru(self, selection):
-		print(selection.get_active_text())
+		target=selection.get_active_text().lower()
+		if not target.startswith('http'):
+			target="https://"+target
+		print("setting booru: ", target)
+		
+		#TODO: username/password/tokens/etc
+		
+		if target=='danbooru':
+			self.booru=pybooru.Danbooru('danbooru')
+		elif target=='konachan':
+			self.booru=pybooru.Moebooru('konachan')
+		elif target=='vinebooru':
+			self.booru=Vinebooru()
+		else:
+			self.booru=pybooru.Moebooru(target)

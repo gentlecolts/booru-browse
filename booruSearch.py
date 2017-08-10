@@ -22,7 +22,6 @@ class searchWidget(Gtk.Box):
 		
 		searchbutton=Gtk.Button(label="Update Search")
 		buttonRow.pack_start(searchbutton, expand=False, fill=True, padding=0)
-		#TODO: attach event listeners
 		def updateSearch(button):
 			newtags=self.searchbar.get_text().split()
 			self.searchbar.set_text("")
@@ -31,11 +30,9 @@ class searchWidget(Gtk.Box):
 		
 		resetbutton=Gtk.Button(label="Reset Search")
 		buttonRow.pack_start(resetbutton, expand=False, fill=True, padding=0)
-		#TODO: attach event listeners
 		def resetSearch(button):
 			self.tags.clear()
 		resetbutton.connect("clicked", resetSearch)
-		#resetbutton.set_sensitive(False)#TODO: remove this when button works
 		
 		#some spacing
 		spacer=Gtk.Fixed()
