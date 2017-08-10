@@ -32,4 +32,4 @@ class booruView(Gtk.Box):
 #			alert(self, str(e))
 	
 	def openImage(self, imagedic):
-		"swap over to "
+		print(imagedic)

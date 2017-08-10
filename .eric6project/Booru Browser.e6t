@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-10, 13:52:05 -->
+<!-- Saved: 2017-08-10, 14:05:10 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{42f6ac52-bb5f-4455-8cd4-ad34a05e8735}">
@@ -166,13 +166,13 @@
       <Linenumber>37</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{af4d8ec1-c810-4275-ab9d-45e1b602cd2f}">
+  <Task priority="1" completed="False" type="1" uid="{14b6a24a-3f6b-49fe-8db5-6a924337ff39}">
     <Summary>TODO: implement</Summary>
     <Description></Description>
-    <Created>2017-08-10, 13:52:03</Created>
+    <Created>2017-08-10, 14:05:07</Created>
     <Resource>
       <Filename>tileView.py</Filename>
-      <Linenumber>26</Linenumber>
+      <Linenumber>27</Linenumber>
     </Resource>
   </Task>
 </Tasks>

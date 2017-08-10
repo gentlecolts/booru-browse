@@ -10,6 +10,7 @@ class tileView(Gtk.Box):
 		"""set everything up"""
 		super(tileView, self).__init__(orientation=Gtk.Orientation.VERTICAL)
 		
+		self.parent=booruWidget
 		#main grid
 		self.colums=6
 		
@@ -33,6 +34,10 @@ class tileView(Gtk.Box):
 		tiles=self.grid.get_children()
 		for tile in tiles:
 			self.grid.remove(tile)
+		
+		def click(w, e, post):
+			#print(post)
+			self.parent.openImage(post)
 		
 		#fetch new results
 		results=self.client.post_list(tags=self.query, page=self.page)
@@ -73,10 +78,15 @@ class tileView(Gtk.Box):
 				if x==self.colums:
 					x=0
 					y+=1
-				self.grid.attach(self.cache[id], x, y, 1, 1)
+				
+				clicker=Gtk.EventBox()
+				clicker.add(self.cache[id])
+				clicker.connect("button_press_event", click, post)
+				clicker.show()
+				self.grid.attach(clicker, x, y, 1, 1)
+				
 				print("attached {} to ({},{})".format(id, x, y))
 				x+=1
-				#self.show_all()
 				yield True
 			yield False
 		GObject.idle_add(next, loadLoop())
