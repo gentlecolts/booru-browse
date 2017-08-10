@@ -43,4 +43,4 @@ class booruLister(Gtk.ComboBoxText):
 		elif target=='vinebooru':
 			self.booru=Vinebooru()
 		else:
-			self.booru=pybooru.Moebooru(target)
+			self.booru=pybooru.Moebooru(site_url=target, api_version="1.13.0+update.2")

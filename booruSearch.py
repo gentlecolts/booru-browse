@@ -62,3 +62,6 @@ class searchWidget(Gtk.Box):
 		
 		#alias this for convenience
 		self.tagsAsString=self.tags.tagsAsString
+	
+	def getClient(self):
+		return self.boorus.booru

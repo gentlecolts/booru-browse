@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gtk, GObject
 
 from mainwin import booruView
 
@@ -13,4 +13,5 @@ booruview=booruView()
 win.add(booruview)
 win.show_all()
 
+GObject.threads_init()
 Gtk.main()

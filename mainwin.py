@@ -23,12 +23,13 @@ class booruView(Gtk.Box):
 	
 	def updateSearch(self):
 		"""add new search terms and update the view"""
-		print("new search terms:", self.search.tagsAsString())
-		try:
-			#pass the client and new query to the tileView
-			""""""
-		except Exception as e:
-			alert(self, str(e))
+		query=self.search.tagsAsString()
+		print("new search terms: ", query)
+		#try:
+		self.postPreview.updateSearch(self.search.getClient(), query)
+#		except Exception as e:
+#			print(e)
+#			alert(self, str(e))
 	
 	def openImage(self, imagedic):
 		"swap over to "
