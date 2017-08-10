@@ -30,9 +30,9 @@ class tileView(Gtk.Box):
 		
 	def refresh(self):
 		#clear the grid
-		#tiles=self.get_children()
-		#for tile in tiles:
-		#	self.remove(tile)
+		tiles=self.grid.get_children()
+		for tile in tiles:
+			self.grid.remove(tile)
 		
 		#fetch new results
 		results=self.client.post_list(tags=self.query, page=self.page)
