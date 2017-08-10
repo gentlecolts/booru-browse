@@ -6,10 +6,12 @@ import pybooru
 from Vinebooru import Vinebooru
 
 class booruLister(Gtk.ComboBoxText):
-	def __init__(self):
+	def __init__(self, booruWidget):
 		super(booruLister, self).__init__()
 		
 		self.sites=["danbooru","konchan","vinebooru"]
+		self.booru=None
+		self.parent=booruWidget
 		
 		try:
 			with open("boorus.txt") as f:
@@ -24,7 +26,6 @@ class booruLister(Gtk.ComboBoxText):
 				self.append_text(booru)
 			else:#a list
 				self.append_text(booru[0])
-		self.booru=None
 		
 		self.connect("changed", self.setBooru)
 	
@@ -44,3 +45,5 @@ class booruLister(Gtk.ComboBoxText):
 			self.booru=Vinebooru()
 		else:
 			self.booru=pybooru.Moebooru(site_url=target, api_version="1.13.0+update.2")
+		
+		self.parent.updateSearch()

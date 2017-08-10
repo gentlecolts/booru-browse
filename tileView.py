@@ -11,6 +11,10 @@ class tileView(Gtk.Box):
 		super(tileView, self).__init__(orientation=Gtk.Orientation.VERTICAL)
 		
 		self.parent=booruWidget
+		self.cache={}
+		self.client=None
+		self.page=1
+		
 		#main grid
 		self.colums=6
 		
@@ -25,9 +29,35 @@ class tileView(Gtk.Box):
 		
 		#viewer controls
 		#TODO: implement
+		backbtn=Gtk.Button()
+		backbtn.set_image(Gtk.Image(stock="gtk-go-back"))
+		forwardbtn=Gtk.Button()
+		forwardbtn.set_image(Gtk.Image(stock='gtk-go-forward'))
 		
-		self.cache={}
-		self.client=None
+		backbtn.connect('clicked', lambda b:self.setPage(self.page-1))
+		forwardbtn.connect('clicked', lambda b:self.setPage(self.page+1))
+		
+		pageFrame=Gtk.Frame(label="Page")
+		self.pageEntry=Gtk.Entry()
+		self.pageEntry.set_text(str(self.page))
+		pageFrame.add(self.pageEntry)
+		pageFrame.set_shadow_type(Gtk.ShadowType.NONE)
+		
+		def inputFilter(entry):
+			entry.set_text(''.join([i for i in entry.get_text() if i in '0123456789']))
+		self.pageEntry.connect('changed', inputFilter)
+		def submit(entry):
+			self.setPage(int(entry.get_text()))
+		self.pageEntry.connect('activate', submit)
+		
+		controlBox=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		controlBox.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		controlBox.pack_start(backbtn, expand=False, fill=True, padding=10)
+		controlBox.pack_start(pageFrame, expand=False, fill=True, padding=10)
+		controlBox.pack_start(forwardbtn, expand=False, fill=True, padding=10)
+		controlBox.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		
+		self.pack_start(controlBox, expand=False, fill=True, padding=0)
 		
 	def refresh(self):
 		#clear the grid
@@ -41,55 +71,57 @@ class tileView(Gtk.Box):
 		
 		#fetch new results
 		results=self.client.post_list(tags=self.query, page=self.page)
+		
+		#TODO: remove blacklisted items from results
+		
 		#from pprint import pprint
 		#pprint(results)
-		def loadLoop():
-			print("running loadLoop")
-			(x, y)=(0, 0)
-			for post in results:
-				id=int(post["id"])
-				#cach the post thumbnail if we dont already have it
-				if not id in self.cache:
-					#set up the response
-					response=urllib.request.urlopen(post["preview_url"])
-					#set the cache as an empty image now, just enough to add it to the grid
-					self.cache[id]=Gtk.Image()
-					#download incrementally on the gobject's idle
-					def loadurl(image, response):
-						loader=gi.repository.GdkPixbuf.PixbufLoader()
-						buf=bytes()
-						while True:
-							read=response.read(512)
-							if read:
-								buf+=read
-								yield True
-							else:
-								break;
-						loader.write(buf)
-						loader.close()
-						image.set_from_pixbuf(loader.get_pixbuf())
-						image.show()
-						yield False
-					GObject.idle_add(next, loadurl(self.cache[id], response))
+		print("running loadLoop")
+		(x, y)=(0, 0)
+		for post in results:
+			id=int(post["id"])
+			#cach the post thumbnail if we dont already have it
+			if not id in self.cache:
+				#set up the response
+				
+				#set the cache as an empty image now, just enough to add it to the grid
+				self.cache[id]=Gtk.EventBox()
+				cacheimage=Gtk.Image()
+				
+				self.cache[id].add(cacheimage)
+				self.cache[id].connect("button_press_event", click, post)
+				self.cache[id].show_all()
+				
+				#TODO: is it possible to set image size request?  size info is in json
+				#download incrementally on the gobject's idle
+				def loadurl(image, url):
+					response=urllib.request.urlopen(url)
+					loader=gi.repository.GdkPixbuf.PixbufLoader()
+					buf=bytes()
+					while True:
+						read=response.read(512)
+						if read:
+							buf+=read
+							yield True
+						else:
+							break;
+					loader.write(buf)
+					loader.close()
+					image.set_from_pixbuf(loader.get_pixbuf())
 					
-					print("cached image id ", id)
+					yield False
+				GObject.idle_add(next, loadurl(cacheimage, post["preview_url"]))
 				
-				#take image from the cache and put it in the grid
-				if x==self.colums:
-					x=0
-					y+=1
-				
-				clicker=Gtk.EventBox()
-				clicker.add(self.cache[id])
-				clicker.connect("button_press_event", click, post)
-				clicker.show()
-				self.grid.attach(clicker, x, y, 1, 1)
-				
-				print("attached {} to ({},{})".format(id, x, y))
-				x+=1
-				yield True
-			yield False
-		GObject.idle_add(next, loadLoop())
+				#print("cached image id ", id)
+			
+			#take image from the cache and put it in the grid
+			if x==self.colums:
+				x=0
+				y+=1
+			self.grid.attach(self.cache[id], x, y, 1, 1)
+			
+			#print("attached {} to ({},{})".format(id, x, y))
+			x+=1
 	
 	def updateSearch(self, client, query):
 		"""reset everything and update"""
@@ -99,4 +131,10 @@ class tileView(Gtk.Box):
 			self.client=client
 			self.cache={}
 		self.query=query
+		self.refresh()
+	
+	def setPage(self, page):
+		self.page=0 if page<0 else page
+		#print("setting page to ", page)
+		self.pageEntry.set_text(str(self.page))
 		self.refresh()

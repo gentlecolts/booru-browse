@@ -27,6 +27,7 @@ class searchWidget(Gtk.Box):
 			self.searchbar.set_text("")
 			self.tags.addTags(newtags)
 		searchbutton.connect("clicked", updateSearch)
+		self.searchbar.connect("activate", updateSearch)
 		
 		resetbutton=Gtk.Button(label="Reset Search")
 		buttonRow.pack_start(resetbutton, expand=False, fill=True, padding=0)
@@ -39,7 +40,7 @@ class searchWidget(Gtk.Box):
 		buttonRow.pack_start(spacer, expand=True, fill=True, padding=0)
 		
 		#settings related buttons
-		self.boorus=booruLister()
+		self.boorus=booruLister(booruWidget)
 		buttonRow.pack_start(self.boorus, expand=False, fill=True, padding=0)
 		#TODO: attach event listeners
 		
