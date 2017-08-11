@@ -1,6 +1,7 @@
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+gi.require_version('WebKit', '3.0')
+from gi.repository import Gtk, GObject, WebKit
 
 class queuedBar(Gtk.ProgressBar):
 	def __init__(self):
@@ -62,9 +63,56 @@ while True:
 loader.write(buf)
 """
 
-class postView(Gtk.HBox):
+class postView(Gtk.Box):
 	"""settings and stuff"""
 	def __init__(self, booruWidget):
 		"""set everything up"""
-		super(postView, self).__init__()
+		super(postView, self).__init__(orientation=Gtk.Orientation.VERTICAL)
 		
+		#comments, tags, and sources
+		#TODO: implement
+		
+		#web view for displaying media
+		self.content=WebKit.WebView()
+		
+		sw=Gtk.ScrolledWindow()
+		sw.add(self.content)
+		sw.show_all()
+		
+		#pull content together
+		contentBox=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		contentBox.pack_start(sw, expand=True, fill=True, padding=0)
+		contentBox.show()
+		
+		#pack everything into a neat box
+		self.pack_start(contentBox, expand=True, fill=True, padding=0)
+		
+		#set up bottom utility bar
+		backbtn=Gtk.Button(stock='gtk-go-back')
+		backbtn.set_image(Gtk.Image(stock="gtk-go-back"))
+		backbtn.connect("clicked", lambda btn:booruWidget.closeImage())
+		
+		#TODO: make this accept a "target", switch should hide/show the target
+		def makeToggle(name):
+			frame=Gtk.Frame(label=name)
+			button=Gtk.Switch()
+			frame.add(button)
+			return (frame, button)
+		
+		(tagframe, self.tagSwitch)=makeToggle("Tags")
+		(commentframe, self.commentSwitch)=makeToggle("Comments")
+		(sourceframe, self.sourceSwitch)=makeToggle("Source")
+		
+		bottomBar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		bottomBar.pack_start(backbtn, expand=False, fill=True, padding=0)
+		bottomBar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		bottomBar.pack_start(tagframe, expand=False, fill=True, padding=0)
+		bottomBar.pack_start(commentframe, expand=False, fill=True, padding=0)
+		bottomBar.pack_start(sourceframe, expand=False, fill=True, padding=0)
+		bottomBar.show_all()
+		
+		self.pack_start(bottomBar, expand=False, fill=True, padding=0)
+	
+	def load(self, post):
+		url=post['file_url']
+		self.content.load_uri(url)

@@ -26,7 +26,7 @@ class tileView(Gtk.Box):
 		self.page=1
 		
 		#main grid
-		self.colums=6
+		self.colums=7
 		
 		self.grid=Gtk.Grid()
 		self.grid.set_column_homogeneous(True)
@@ -68,6 +68,7 @@ class tileView(Gtk.Box):
 		controlBox.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
 		
 		self.pack_start(controlBox, expand=False, fill=True, padding=0)
+		self.show_all()
 		
 	def refresh(self):
 		#clear the grid
