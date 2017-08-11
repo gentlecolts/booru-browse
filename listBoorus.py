@@ -9,7 +9,7 @@ class booruLister(Gtk.ComboBoxText):
 	def __init__(self, booruWidget):
 		super(booruLister, self).__init__()
 		
-		self.sites=["danbooru","konchan","vinebooru"]
+		self.sites=["danbooru","konachan","vinebooru"]
 		self.booru=None
 		self.parent=booruWidget
 		
@@ -31,8 +31,6 @@ class booruLister(Gtk.ComboBoxText):
 	
 	def setBooru(self, selection):
 		target=selection.get_active_text().lower()
-		if not target.startswith('http'):
-			target="https://"+target
 		print("setting booru: ", target)
 		
 		#TODO: username/password/tokens/etc
@@ -41,9 +39,12 @@ class booruLister(Gtk.ComboBoxText):
 			self.booru=pybooru.Danbooru('danbooru')
 		elif target=='konachan':
 			self.booru=pybooru.Moebooru('konachan')
+
 		elif target=='vinebooru':
 			self.booru=Vinebooru()
 		else:
+			if not target.startswith('http'):
+				target="https://"+target
 			self.booru=pybooru.Moebooru(site_url=target, api_version="1.13.0+update.2")
 		
 		self.parent.updateSearch()
