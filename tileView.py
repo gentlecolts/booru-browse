@@ -3,68 +3,13 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GObject
 
 import urllib.request
-
 from concurrent.futures import ThreadPoolExecutor
 
-class queuedBar(Gtk.ProgressBar):
-	def __init__(self):
-		super(queuedBar, self).__init__()
-		self.tasks=[]
-		self.set_show_text("Caching Thumbnails")
-		
-		self.show()
-		def watcher():
-			#print("watching...")
-			if len(self.tasks):
-				#print("have tasks, updating")
-				self.show()
-				lis=self.tasks[0]
-				if lis[0]<lis[1]:
-					#print("progress: {}/{}".format(lis[0], lis[1]))
-					self.set_fraction(lis[0]/lis[1])
-				else:
-					#print("top task finished")
-					self.tasks.pop(0)
-			else:
-				#print("no tasks")
-				self.hide()
-			return True
-		GObject.idle_add(watcher)
-		self.refresh=watcher
-	
-	def queue(self, proglist):
-		print("queued task")
-		self.tasks.append(proglist)
-		"""proglist is just a list of [downloaded,total]"""
-
-def loadurl(gtkimage, url, progressbar):
+def loadurl(gtkimage, url):
 	response=urllib.request.urlopen(url)
 	loader=gi.repository.GdkPixbuf.PixbufLoader()
-	buf=bytes()
 	
-	#tracking for length
-	length=response.getheader('content-length')
-	if length:
-		length=int(length)
-		progress=[0, length]
-		#progressbar.queue(progress)
-		blocksize=max(4096, length//100)
-	else:
-		progress=None
-		blocksize=4096
-	
-	while True:
-		read=response.read(blocksize)
-		if read:
-			buf+=read
-			
-			if progress:
-				progress[0]=len(buf)
-		else:
-			if progress:
-				progress[0]=progress[1]
-			break;
-	loader.write(buf)
+	loader.write(response.read())
 	loader.close()
 	
 	GObject.idle_add(lambda:gtkimage.set_from_pixbuf(loader.get_pixbuf()))
@@ -79,10 +24,6 @@ class tileView(Gtk.Box):
 		self.cache={}
 		self.client=None
 		self.page=1
-		
-		#loading bar
-		self.progressbar=queuedBar()
-		#self.pack_start(self.progressbar, expand=False, fill=True, padding=0)
 		
 		#main grid
 		self.colums=6
@@ -172,7 +113,7 @@ class tileView(Gtk.Box):
 				#print(preview)
 				
 				#queue image for loading into cache
-				cachepool.submit(loadurl, cacheimage, preview, self.progressbar)
+				cachepool.submit(loadurl, cacheimage, preview)
 				
 				self.cache[id].show_all()
 				#print("cached image id ", id)

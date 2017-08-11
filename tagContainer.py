@@ -38,7 +38,6 @@ class taglabel(Gtk.Box):
 		
 		self.override_background_color(Gtk.StateType.NORMAL, negate_color if self.negated else active_color)
 
-	
 	def flip(self):
 		self.negated='' if self.negated else '-'
 		self.label.set_text(self.negated+self.name)
@@ -81,8 +80,6 @@ class tagBox(Gtk.Grid):
 		self.show_all()
 		#need to display everything
 		self.parent.booruWidget.updateSearch()
-		
-		
 			
 	def addTags(self, tags):
 		for tag in tags:
