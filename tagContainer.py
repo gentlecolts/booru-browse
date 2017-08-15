@@ -19,7 +19,6 @@ class taglabel(Gtk.Box):
 		self.pack_start(self.label, expand=True, fill=True, padding=0)
 		
 		#create the buttons
-		#self.flip=Gtk.Image(stock="gtk-remove")
 		self.flipbttn=Gtk.Image(stock=("gtk-add" if self.negated else "gtk-remove"))
 		negEvent=Gtk.EventBox()
 		def flipper(w, e):
@@ -68,16 +67,16 @@ class tagBox(Gtk.Grid):
 		currentTags=self.get_children()
 		for tag in currentTags:
 			self.remove(tag)
-		#print("cleared grid, adding new tags")
+		
 		(x, y)=(0, 0)
 		for key, val in sorted(self.taglist.items()):
 			if x>=tagsPerRow:
 				x=0
 				y+=1
 			self.attach(val, x, y, 1, 1)
-			#print("attached {} to ({},{})".format(val.name, x, y))
 			x+=1
 		self.show_all()
+		
 		#need to display everything
 		self.parent.booruWidget.updateSearch()
 			
@@ -85,7 +84,6 @@ class tagBox(Gtk.Grid):
 		for tag in tags:
 			newtag=taglabel(self, tag)
 			self.taglist[newtag.name]=newtag
-		#print("taglist is now {}".format(self.taglist))
 		self.refreshList()
 	
 	def removeTag(self, tag):

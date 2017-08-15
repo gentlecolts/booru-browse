@@ -26,7 +26,6 @@ class Vinebooru():
 		print(type(posts))
 		results=[]
 		for tag in posts:
-			#help(tag)
 			id=tag.attrib['data-post-id']
 			post={
 				'id':int(id), 

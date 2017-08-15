@@ -8,37 +8,27 @@ from tagContainer import tagBox
 from Vinebooru import Vinebooru
 
 tagkeys=['artist', 'tags']
-#tagkeys=['tags']
 
 #golden ratio
 golden = (1 + 5 ** 0.5) / 2
 panelWid=int(1280*(1-1/golden)/2)
 
-#TODO: clean this up
 class tagDisplay(Gtk.ScrolledWindow):
-#class tagDisplay(Gtk.Box):
 	def __init__(self, container, tags:tagBox):
 		super(tagDisplay, self).__init__()
-		#super(tagDisplay, self).__init__(Gtk.Orientation.VERTICAL)
 		self.tags=tags
 		self.parent=container
 		
 		self.box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-		#self.box.set_homogeneous(True)
-		#self.box=Gtk.Grid()
-		#self.box.set_column_homogeneous(True)
-		#self.box.set_alignment(0, 0)
 		
 		port=Gtk.Viewport()
 		port.add(self.box)
 		self.add(port)
-		#self.add(self.box)
-		#self.show_all()
 		self.set_size_request(100, 720)
 	
 	def setContent(self, content:dict):
 		"""add stuff to the widget"""
-		#clean anything currently here
+		#clean anything currently added
 		children=self.box.get_children()
 		for child in children:
 			self.box.remove(child)
@@ -56,34 +46,21 @@ class tagDisplay(Gtk.ScrolledWindow):
 			catlab=Gtk.Label(category)
 			catlab.set_alignment(0, 0)
 			self.box.add(catlab)
-			#addgrid(Gtk.Label(category))
 			
 			if type(tags) is str:
 				tags=tags.split()
 			for tag in tags:
 				button=Gtk.LinkButton.new_with_label(tag, tag)
 				def click(button):
-					#print(dir(button))
 					self.tags.addTags([button.get_uri()])
 					return True#needed to override default click behavior
 				button.connect('activate-link', click)
-				#button.get_children()[0].set_justify(Gtk.Justification.LEFT)
 				button.set_alignment(0, 0)
-				#button=Gtk.Label(tag)
 				self.box.pack_start(button, expand=False, fill=False, padding=0)
 				
-				#self.box.add(button)
-				#addgrid(button)
-				
-				#print("added {}:{}".format(category, tag))
 				width=max(width, button.get_allocation().width)
-				
-				#req=button.get_size_request()
-				#print(req.width, req.height)
-				#print(button.size_request())
 		
 		self.set_size_request(panelWid, self.parent.get_size_request().height)
-		#self.show_all()
 
 class sourceDisplay(Gtk.Box):
 	def __init__(self):
@@ -157,20 +134,6 @@ class postView(Gtk.Box):
 			def onswitch(switch, param):
 				if switch.get_active():
 					target.show_all()
-					
-					"""
-					def listchildren(widget, space=''):
-						print(name, space, type(widget))
-						try:
-							children=widget.get_children()
-						except:
-							children=[]
-						space=space+' '
-						for child in children:
-							listchildren(child, space)
-					
-					listchildren(target)
-					"""
 				else:
 					target.hide()
 			

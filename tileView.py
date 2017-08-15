@@ -8,18 +8,12 @@ from concurrent.futures import ThreadPoolExecutor
 def loadurl(gtkimage, url):
 	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 	
-	#print(url+" will be loaded")
-	#response=urllib.request.urlopen(url)
 	response=urllib.request.urlopen(request)
-	#print(url+" opened, creating pixbuf")
 	loader=gi.repository.GdkPixbuf.PixbufLoader()
-	#print(url+" pixbuf created, reading data")
 	
 	loader.write(response.read())
-	#print(url+" has been read, closing")
 	loader.close()
 	
-	#print(url+" loaded")
 	GObject.idle_add(lambda:gtkimage.set_from_pixbuf(loader.get_pixbuf()))
 
 class tileView(Gtk.Box):
@@ -46,7 +40,6 @@ class tileView(Gtk.Box):
 		self.pack_start(scroll, expand=True, fill=True, padding=0)
 		
 		#viewer controls
-		#TODO: implement
 		backbtn=Gtk.Button()
 		backbtn.set_image(Gtk.Image(stock="gtk-go-back"))
 		forwardbtn=Gtk.Button()
@@ -126,14 +119,12 @@ class tileView(Gtk.Box):
 				#loadurl(cacheimage, preview)
 				
 				self.cache[id].show_all()
-				#print("cached image id ", id)
 			
 			#take image from the cache and put it in the grid
 			if x==self.colums:
 				x=0
 				y+=1
 			self.grid.attach(self.cache[id], x, y, 1, 1)
-			#print("attached {} to ({},{})".format(id, x, y))
 			x+=1
 	
 	def updateSearch(self, client, query):
