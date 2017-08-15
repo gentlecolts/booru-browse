@@ -23,7 +23,7 @@ class Vinebooru():
 		query=pq(url=searchurl)
 		posts=query('a.thumb')
 		
-		print(type(posts))
+		#print(type(posts))
 		results=[]
 		for tag in posts:
 			id=tag.attrib['data-post-id']
@@ -35,7 +35,7 @@ class Vinebooru():
 			}
 			results.append(post)
 		
-		pprint(results)
+		#pprint(results)
 		
 		return results
 	

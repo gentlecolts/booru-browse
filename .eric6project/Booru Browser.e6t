@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-15, 14:16:51 -->
+<!-- Saved: 2017-08-15, 14:24:07 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{a9d2df1f-7ce5-4418-a5ba-ec2ba1e48ca8}">
@@ -20,24 +20,6 @@
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>40</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{8bb463fa-a13a-4e67-a287-abf807798451}">
-    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:43</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>160</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{7230abda-9abf-401f-a0f3-151381b811ee}">
-    <Summary>TODO: gather comments</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:56</Created>
-    <Resource>
-      <Filename>Vinebooru.py</Filename>
-      <Linenumber>60</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" type="1" uid="{02563a84-607c-4b1e-9184-4d1e8786d88f}">
@@ -137,6 +119,24 @@
     <Resource>
       <Filename>tileView.py</Filename>
       <Linenumber>108</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{f8c7af8f-6df3-4c1a-9f86-55fd37b05750}">
+    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+    <Description></Description>
+    <Created>2017-08-15, 14:22:04</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>159</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{cac194c0-3dfe-4903-a851-29793f9bbc4c}">
+    <Summary>TODO: gather comments</Summary>
+    <Description></Description>
+    <Created>2017-08-15, 14:24:04</Created>
+    <Resource>
+      <Filename>Vinebooru.py</Filename>
+      <Linenumber>60</Linenumber>
     </Resource>
   </Task>
 </Tasks>

@@ -24,7 +24,6 @@ class tagDisplay(Gtk.ScrolledWindow):
 		port=Gtk.Viewport()
 		port.add(self.box)
 		self.add(port)
-		self.set_size_request(100, 720)
 	
 	def setContent(self, content:dict):
 		"""add stuff to the widget"""
