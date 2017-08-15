@@ -24,7 +24,7 @@ class tagDisplay(Gtk.ScrolledWindow):
 		self.parent=container
 		
 		self.box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-		self.box.set_homogeneous(True)
+		#self.box.set_homogeneous(True)
 		#self.box=Gtk.Grid()
 		#self.box.set_column_homogeneous(True)
 		#self.box.set_alignment(0, 0)
