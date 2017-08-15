@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-15, 12:33:15 -->
+<!-- Saved: 2017-08-15, 14:00:14 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{6d2001d6-54bc-4436-b8d2-2450ee1b61f0}">
@@ -85,24 +85,6 @@
       <Linenumber>36</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{73b1cb83-da2b-458a-a025-4666f8891f32}">
-    <Summary>TODO:swap out the tiles with the post itself</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 09:25:42</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>40</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{2d9f6e07-1daf-4d57-9f41-e9959544091a}">
-    <Summary>TODO: clean this up</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 10:35:52</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>15</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="1" uid="{9d9d1d58-3d9a-4947-8d9e-e384bd7d5b3a}">
     <Summary>TODO: implement</Summary>
     <Description></Description>
@@ -128,6 +110,42 @@
     <Resource>
       <Filename>tileView.py</Filename>
       <Linenumber>115</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a685d0e3-2144-4626-a68e-086d024a196c}">
+    <Summary>TODO:swap out the tiles with the post itself</Summary>
+    <Description></Description>
+    <Created>2017-08-15, 13:03:18</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>40</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{dc5c953c-5edd-471d-a0af-dce082c08203}">
+    <Summary>TODO: gather comments</Summary>
+    <Description></Description>
+    <Created>2017-08-15, 13:59:03</Created>
+    <Resource>
+      <Filename>Vinebooru.py</Filename>
+      <Linenumber>115</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{192bc91e-1fa4-452d-8b9b-3f9172495ce4}">
+    <Summary>TODO: clean this up</Summary>
+    <Description></Description>
+    <Created>2017-08-15, 14:00:11</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>17</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{878f8a6e-2e66-44a0-9e23-0fdf0aaecddc}">
+    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+    <Description></Description>
+    <Created>2017-08-15, 14:00:11</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>197</Linenumber>
     </Resource>
   </Task>
 </Tasks>

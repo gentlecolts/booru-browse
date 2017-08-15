@@ -86,10 +86,30 @@ class Vinebooru():
 				'id':int(id), 
 				'tags':tag.attrib['data-tags'], 
 				'preview_url':baseurl+tag.find('img').attrib['src'],
+				'post_page_url':baseurl+tag.attrib['href'], 
 			}
 			results.append(post)
 		
 		pprint(results)
 		
-		#raise NotImplementedError("not done yet")
 		return results
+	
+	def fetchPost(self, post:dict):
+		"""generate the file_url key
+		
+		"""
+		query=pq(url=post['post_page_url'])
+		#get url to post image
+		post['file_url']=baseurl+query('img.shm-main-image')[0].attrib['src']
+		
+		#guarentee both source keys exist and fill them
+		post['source']=''
+		post['sources']=[]
+		
+		for source in query('div.view'):
+			link=source.find('a').attrib['href']
+			
+			target='sources' if post['source'] else 'source'
+			post[target]+=link
+		
+		#TODO: gather comments

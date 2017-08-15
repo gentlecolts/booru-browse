@@ -5,6 +5,8 @@ from gi.repository import Gtk, WebKit
 
 from tagContainer import tagBox
 
+from Vinebooru import Vinebooru
+
 tagkeys=['artist', 'tags']
 #tagkeys=['tags']
 
@@ -68,7 +70,7 @@ class tagDisplay(Gtk.ScrolledWindow):
 				#button.get_children()[0].set_justify(Gtk.Justification.LEFT)
 				button.set_alignment(0, 0)
 				#button=Gtk.Label(tag)
-				self.box.pack_start(button, expand=True, fill=True, padding=0)
+				self.box.pack_start(button, expand=False, fill=False, padding=0)
 				
 				#self.box.add(button)
 				#addgrid(button)
@@ -118,6 +120,8 @@ class postView(Gtk.Box):
 		self.sources=sourceDisplay()
 		self.comments=commentDisplay()
 		self.tags=tagDisplay(contentBox, booruWidget.search.tags)
+		
+		self.getClient=booruWidget.search.getClient
 		
 		#web view for displaying media
 		self.content=WebKit.WebView()
@@ -189,6 +193,11 @@ class postView(Gtk.Box):
 		self.pack_start(bottomBar, expand=False, fill=True, padding=0)
 	
 	def load(self, post):
+		client=self.getClient()
+		#TODO: for future special cases, maybe this should depend on a key in the dict instead of class type
+		if type(client) is Vinebooru:
+			client.fetchPost(post)
+		
 		url=post['file_url']
 		self.content.load_uri(url)
 		
