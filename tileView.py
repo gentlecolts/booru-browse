@@ -6,12 +6,20 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 def loadurl(gtkimage, url):
-	response=urllib.request.urlopen(url)
+	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+	
+	#print(url+" will be loaded")
+	#response=urllib.request.urlopen(url)
+	response=urllib.request.urlopen(request)
+	#print(url+" opened, creating pixbuf")
 	loader=gi.repository.GdkPixbuf.PixbufLoader()
+	#print(url+" pixbuf created, reading data")
 	
 	loader.write(response.read())
+	#print(url+" has been read, closing")
 	loader.close()
 	
+	#print(url+" loaded")
 	GObject.idle_add(lambda:gtkimage.set_from_pixbuf(loader.get_pixbuf()))
 
 class tileView(Gtk.Box):
@@ -104,7 +112,7 @@ class tileView(Gtk.Box):
 				self.cache[id].add(cacheimage)
 				self.cache[id].connect("button_press_event", click, post)
 				
-				#TODO: is it possible to set image size request?  size info is in json
+				#TODO: is it possible to set image size request?  size info is in the json
 				
 				#determine the url for the preview
 				preview=post['preview_url' if "preview_url" in post else 'preview_file_url']
@@ -115,6 +123,7 @@ class tileView(Gtk.Box):
 				
 				#queue image for loading into cache
 				cachepool.submit(loadurl, cacheimage, preview)
+				#loadurl(cacheimage, preview)
 				
 				self.cache[id].show_all()
 				#print("cached image id ", id)
