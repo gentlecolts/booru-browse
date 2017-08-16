@@ -117,13 +117,21 @@ class postView(Gtk.Box):
 		contentBox.pack_start(self.comments, expand=False, fill=True, padding=0)
 		contentBox.show()
 		
-		#pack everything into a neat box
-		self.pack_start(contentBox, expand=True, fill=True, padding=0)
-		
-		#set up bottom utility bar
+		#set up utility bar
 		backbtn=Gtk.Button(stock='gtk-go-back')
-		backbtn.set_image(Gtk.Image(stock="gtk-go-back"))
+		backbtn.set_always_show_image(True)
 		backbtn.connect("clicked", lambda btn:booruWidget.closeImage())
+		
+		prev=Gtk.Button(stock='gtk-media-previous')
+		prev.set_always_show_image(True)
+		#TODO: add functionality
+		prev.set_sensitive(False)
+		
+		next=Gtk.Button(stock='gtk-media-next')
+		next.set_always_show_image(True)
+		next.set_image_position(Gtk.PositionType.RIGHT)
+		#TODO: add functionality
+		next.set_sensitive(False)
 		
 		def makeToggle(name, target):
 			frame=Gtk.Frame(label=name)
@@ -144,15 +152,20 @@ class postView(Gtk.Box):
 		(commentframe, self.commentSwitch)=makeToggle("Comments", self.comments)
 		(sourceframe, self.sourceSwitch)=makeToggle("Source", self.sources)
 		
-		bottomBar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-		bottomBar.pack_start(backbtn, expand=False, fill=True, padding=0)
-		bottomBar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
-		bottomBar.pack_start(tagframe, expand=False, fill=True, padding=0)
-		bottomBar.pack_start(commentframe, expand=False, fill=True, padding=0)
-		bottomBar.pack_start(sourceframe, expand=False, fill=True, padding=0)
-		bottomBar.show_all()
+		toolbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		toolbar.pack_start(backbtn, expand=True, fill=False, padding=0)
+		toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		toolbar.pack_start(prev, expand=False, fill=False, padding=5)
+		toolbar.pack_start(next, expand=False, fill=False, padding=5)
+		toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		toolbar.pack_start(tagframe, expand=False, fill=True, padding=0)
+		toolbar.pack_start(commentframe, expand=False, fill=True, padding=0)
+		toolbar.pack_start(sourceframe, expand=False, fill=True, padding=0)
+		toolbar.show_all()
 		
-		self.pack_start(bottomBar, expand=False, fill=True, padding=0)
+		#put it all together
+		self.pack_start(toolbar, expand=False, fill=True, padding=0)
+		self.pack_start(contentBox, expand=True, fill=True, padding=0)
 	
 	def load(self, post):
 		client=self.getClient()
@@ -168,10 +181,14 @@ class postView(Gtk.Box):
 			if key in post:
 				tags[key]=post[key]
 		self.tags.setContent(tags)
+		if(self.tagSwitch.get_active()):
+			self.tags.show_all()
 		
 		sources=[post['source']]
 		if 'sources' in post:
 			sources+=post['sources']
 		self.sources.setContent(sources)
+		if(self.sourceSwitch.get_active()):
+			self.sources.show_all()
 		
 		#self.comments.setContent()

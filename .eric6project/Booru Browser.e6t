@@ -1,142 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-15, 14:24:07 -->
+<!-- Saved: 2017-08-16, 11:30:54 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{a9d2df1f-7ce5-4418-a5ba-ec2ba1e48ca8}">
-    <Summary>TODO:swap out the tiles with the post itself</Summary>
+  <Task priority="1" completed="False" type="1" uid="{f5001d94-77e7-49a2-90d6-5a525c05e284}">
+    <Summary>TODO: gather comments</Summary>
     <Description></Description>
-    <Created>2017-08-15, 14:07:52</Created>
+    <Created>2017-08-16, 09:29:29</Created>
     <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>40</Linenumber>
+      <Filename>Vinebooru.py</Filename>
+      <Linenumber>60</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{ba2dcd56-dde0-4bc9-98b9-d4b9eea5014e}">
-    <Summary>TODO:swap out the tiles with the post itself</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:07:53</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>40</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{02563a84-607c-4b1e-9184-4d1e8786d88f}">
-    <Summary>TODO: attach event listeners</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>21</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{bb50530b-fbfa-4f37-bc40-f10475e25c7e}">
-    <Summary>TODO: attach event listeners</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>45</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{5c79a801-2cc8-44b1-928a-b4ad74a07de5}">
-    <Summary>TODO: attach event listeners</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>49</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{82057097-c444-42ea-b728-c574a7eaa451}">
-    <Summary>TODO: load blacklist (when site is set?)</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>50</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{b6159e85-df07-4834-9138-e3a6adfaec25}">
-    <Summary>TODO: remove this when button works</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>51</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{42ddb91d-010d-4ddd-b9b2-4bc573edaf5e}">
-    <Summary>TODO: attach event listeners</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>55</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{8d0b9fb6-0b1b-4766-89aa-27781d91dab1}">
-    <Summary>TODO: what login info can be stored securely (username? tokens?)?</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>56</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{82013910-0a70-4ebe-999e-e1ffc1972b54}">
-    <Summary>TODO: remove this when button works</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:12:58</Created>
-    <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>57</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{39a24043-601b-4463-b9b7-7ba0ff37b8ad}">
+  <Task priority="1" completed="False" type="1" uid="{5866dffa-99db-46ce-af4d-d1b87e8e6aaf}">
     <Summary>TODO: username/password/tokens/etc</Summary>
     <Description></Description>
-    <Created>2017-08-15, 14:13:51</Created>
+    <Created>2017-08-16, 09:29:29</Created>
     <Resource>
       <Filename>listBoorus.py</Filename>
       <Linenumber>36</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{fee079f7-c62d-4564-8d44-649fdbdffa27}">
+  <Task priority="1" completed="False" type="1" uid="{29b5660d-cafe-454a-86cd-62b4f0953d4d}">
+    <Summary>TODO:swap out the tiles with the post itself</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:24</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>40</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{fd180ec5-448b-4c1a-b251-3ca4af2a03fe}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>21</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{3b158730-205e-471c-8c1e-69af34bd6c16}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>45</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{42ac90d6-44b4-4922-8152-75403f6e4c3f}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>49</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{8abd4e59-0906-4517-92a6-b750dcbeba79}">
+    <Summary>TODO: load blacklist (when site is set?)</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>50</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{d84b6219-de54-4a50-b8b1-35d32fc12d19}">
+    <Summary>TODO: remove this when button works</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>51</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{333685a8-ccf6-4489-be71-b1e0bd685483}">
+    <Summary>TODO: attach event listeners</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>55</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{78cd5f9e-f1e7-4de1-b2a8-1cb79009b5b9}">
+    <Summary>TODO: what login info can be stored securely (username? tokens?)?</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>56</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{ed409657-7826-4f79-bf24-303b74afd039}">
+    <Summary>TODO: remove this when button works</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 10:36:38</Created>
+    <Resource>
+      <Filename>booruSearch.py</Filename>
+      <Linenumber>57</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{abc9c86b-60ed-4951-a52f-2f2439539ade}">
+    <Summary>TODO: add functionality</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 11:09:31</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>127</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{336ccd27-747b-4125-abab-1ae7e5d2f11a}">
+    <Summary>TODO: add functionality</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 11:09:31</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>133</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{84e7a4e1-61e7-449f-83c2-dc5993bce761}">
+    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+    <Description></Description>
+    <Created>2017-08-16, 11:09:31</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>172</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{3b071324-542a-4bfb-8f3e-6e50e2c32b88}">
     <Summary>TODO: remove blacklisted items from results</Summary>
     <Description></Description>
-    <Created>2017-08-15, 14:16:48</Created>
+    <Created>2017-08-16, 11:30:51</Created>
     <Resource>
       <Filename>tileView.py</Filename>
       <Linenumber>87</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{abdf5071-0adb-490d-b5d3-4b989a01449a}">
+  <Task priority="1" completed="False" type="1" uid="{2fe500fc-b04b-491a-9135-265703e8e7c3}">
     <Summary>TODO: is it possible to set image size request?  size info is in the json</Summary>
     <Description></Description>
-    <Created>2017-08-15, 14:16:48</Created>
+    <Created>2017-08-16, 11:30:51</Created>
     <Resource>
       <Filename>tileView.py</Filename>
       <Linenumber>108</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{f8c7af8f-6df3-4c1a-9f86-55fd37b05750}">
-    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:22:04</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>159</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{cac194c0-3dfe-4903-a851-29793f9bbc4c}">
-    <Summary>TODO: gather comments</Summary>
-    <Description></Description>
-    <Created>2017-08-15, 14:24:04</Created>
-    <Resource>
-      <Filename>Vinebooru.py</Filename>
-      <Linenumber>60</Linenumber>
     </Resource>
   </Task>
 </Tasks>

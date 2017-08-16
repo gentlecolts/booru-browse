@@ -28,7 +28,7 @@ class tileView(Gtk.Box):
 		self.page=1
 		
 		#main grid
-		self.colums=7
+		self.colums=6
 		
 		self.grid=Gtk.Grid()
 		self.grid.set_column_homogeneous(True)
@@ -36,8 +36,6 @@ class tileView(Gtk.Box):
 		
 		scroll=Gtk.ScrolledWindow()
 		scroll.add(self.grid)
-		
-		self.pack_start(scroll, expand=True, fill=True, padding=0)
 		
 		#viewer controls
 		backbtn=Gtk.Button()
@@ -68,6 +66,8 @@ class tileView(Gtk.Box):
 		controlBox.pack_start(forwardbtn, expand=False, fill=True, padding=10)
 		controlBox.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
 		
+		#put it all together
+		self.pack_start(scroll, expand=True, fill=True, padding=0)
 		self.pack_start(controlBox, expand=False, fill=True, padding=0)
 		self.show_all()
 		
