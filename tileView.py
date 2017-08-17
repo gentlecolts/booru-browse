@@ -91,7 +91,13 @@ class tileView(Gtk.Box):
 		
 		print("running loadLoop")
 		(x, y)=(0, 0)
-		cachepool=ThreadPoolExecutor()
+		try:
+			#python > 3.4 makes max workers equal to number of cores by default
+			cachepool=ThreadPoolExecutor()
+		except:
+			#but if this needs a parameter, just give it one
+			cachepool=ThreadPoolExecutor(max_workers=8)
+		
 		for post in results:
 			id=int(post["id"])
 			#cach the post thumbnail if we dont already have it

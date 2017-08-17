@@ -38,8 +38,8 @@ class tagDisplay(Gtk.ScrolledWindow):
 			self.box.attach(widget, 0, y, 1, 1)
 			y+=1
 		
-		from pprint import pprint
-		pprint(content)
+		#from pprint import pprint
+		#pprint(content)
 		width=0
 		for category, tags in sorted(content.items()):
 			catlab=Gtk.Label(category)

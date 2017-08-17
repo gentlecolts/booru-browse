@@ -38,8 +38,8 @@ class booruView(Gtk.Box):
 	
 	def openImage(self, imagedic):
 		#TODO:swap out the tiles with the post itself
-		from pprint import pprint
-		pprint(imagedic)
+		#from pprint import pprint
+		#pprint(imagedic)
 		
 		self.post.load(imagedic)
 		
