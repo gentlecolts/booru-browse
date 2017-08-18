@@ -31,6 +31,7 @@ class booruView(Gtk.Box):
 			self.search.single.set_active(True)
 			return True
 		self.floater.connect('delete-event', closeFloat)
+		self.floater.set_title("Post View")
 		
 		self.show_all()
 		self.setSingleWin(False)

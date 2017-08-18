@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-18, 12:20:22 -->
+<!-- Saved: 2017-08-18, 12:23:59 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{463adf54-fb59-4a58-bbc5-d0e2509b1401}">
@@ -148,13 +148,13 @@
       <Linenumber>197</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{81033c6b-37a6-4b17-9da4-17dfe921380f}">
+  <Task priority="1" completed="False" type="1" uid="{7a29db3e-5861-4ed5-9f01-dd50851d63f1}">
     <Summary>TODO:swap out the tiles with the post itself</Summary>
     <Description></Description>
-    <Created>2017-08-18, 12:20:19</Created>
+    <Created>2017-08-18, 12:23:56</Created>
     <Resource>
       <Filename>mainwin.py</Filename>
-      <Linenumber>51</Linenumber>
+      <Linenumber>52</Linenumber>
     </Resource>
   </Task>
 </Tasks>

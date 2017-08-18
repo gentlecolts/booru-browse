@@ -16,6 +16,7 @@ from mainwin import booruView
 win=Gtk.Window()
 win.connect("delete-event", lambda wid, event:Gtk.main_quit())
 win.set_size_request(1280, 720)
+win.set_title("Booru Browser")
 
 booruview=booruView()
 win.add(booruview)
