@@ -19,7 +19,7 @@ win.set_size_request(1280, 720)
 
 booruview=booruView()
 win.add(booruview)
-win.show_all()
+win.show()
 
 GObject.threads_init()
 Gtk.main()

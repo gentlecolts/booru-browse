@@ -35,9 +35,13 @@ class searchWidget(Gtk.Box):
 			self.tags.clear()
 		resetbutton.connect("clicked", resetSearch)
 		
-		#some spacing
-		spacer=Gtk.Fixed()
-		buttonRow.pack_start(spacer, expand=True, fill=True, padding=0)
+		#single window mode button
+		self.single=Gtk.ToggleButton('Single Window Mode')
+		def onToggle(widget):
+			booruWidget.setSingleWin(widget.get_active())
+		self.single.connect('toggled', onToggle)
+		
+		buttonRow.pack_start(self.single, expand=True, fill=False, padding=0)
 		
 		#settings related buttons
 		self.boorus=booruLister(booruWidget)

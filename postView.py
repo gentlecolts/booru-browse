@@ -107,20 +107,22 @@ class postView(Gtk.Box):
 		sw.add(self.content)
 		sw.show_all()
 		
-		midbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-		midbox.pack_start(sw, expand=True, fill=True, padding=0)
-		midbox.pack_start(self.sources, expand=False, fill=True, padding=0)
-		midbox.show()
+		self.midbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+		self.midbox.pack_start(sw, expand=True, fill=True, padding=0)
+		self.midbox.pack_end(self.sources, expand=False, fill=True, padding=0)
+		self.midbox.show()
 		
 		contentBox.pack_start(self.tags, expand=False, fill=True, padding=0)
-		contentBox.pack_start(midbox, expand=True, fill=True, padding=0)
+		contentBox.pack_start(self.midbox, expand=True, fill=True, padding=0)
 		contentBox.pack_start(self.comments, expand=False, fill=True, padding=0)
 		contentBox.show()
 		
+		self.media=contentBox
+		
 		#set up utility bar
-		backbtn=Gtk.Button(stock='gtk-go-back')
-		backbtn.set_always_show_image(True)
-		backbtn.connect("clicked", lambda btn:booruWidget.closeImage())
+		self.backbtn=Gtk.Button(stock='gtk-go-back')
+		self.backbtn.set_always_show_image(True)
+		self.backbtn.connect("clicked", lambda btn:booruWidget.closeImage())
 		
 		prev=Gtk.Button(stock='gtk-media-previous')
 		prev.set_always_show_image(True)
@@ -152,20 +154,21 @@ class postView(Gtk.Box):
 		(commentframe, self.commentSwitch)=makeToggle("Comments", self.comments)
 		(sourceframe, self.sourceSwitch)=makeToggle("Source", self.sources)
 		
-		toolbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-		toolbar.pack_start(backbtn, expand=True, fill=False, padding=0)
-		toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
-		toolbar.pack_start(prev, expand=False, fill=False, padding=5)
-		toolbar.pack_start(next, expand=False, fill=False, padding=5)
-		toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
-		toolbar.pack_start(tagframe, expand=False, fill=True, padding=0)
-		toolbar.pack_start(commentframe, expand=False, fill=True, padding=0)
-		toolbar.pack_start(sourceframe, expand=False, fill=True, padding=0)
-		toolbar.show_all()
+		self.toolbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		self.toolbar.pack_start(self.backbtn, expand=True, fill=False, padding=0)
+		self.toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		self.toolbar.pack_start(prev, expand=False, fill=False, padding=5)
+		self.toolbar.pack_start(next, expand=False, fill=False, padding=5)
+		self.toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+		self.toolbar.pack_start(tagframe, expand=False, fill=True, padding=0)
+		self.toolbar.pack_start(commentframe, expand=False, fill=True, padding=0)
+		self.toolbar.pack_start(sourceframe, expand=False, fill=True, padding=0)
+		self.toolbar.show_all()
+		
 		
 		#put it all together
-		self.pack_start(toolbar, expand=False, fill=True, padding=0)
-		self.pack_start(contentBox, expand=True, fill=True, padding=0)
+		self.pack_start(self.toolbar, expand=False, fill=True, padding=0)
+		self.pack_end(contentBox, expand=True, fill=True, padding=0)
 	
 	def load(self, post):
 		client=self.getClient()
@@ -191,4 +194,15 @@ class postView(Gtk.Box):
 		if(self.sourceSwitch.get_active()):
 			self.sources.show_all()
 		
+		#TODO: need to fetch comments
 		#self.comments.setContent()
+	
+	def removeMedia(self):
+		self.remove(self.media)
+		self.remove(self.toolbar)
+		self.backbtn.hide()
+	
+	def addMedia(self):
+		self.pack_end(self.media, expand=True, fill=True, padding=0)
+		self.pack_start(self.toolbar, expand=False, fill=True, padding=0)
+		self.backbtn.show()
