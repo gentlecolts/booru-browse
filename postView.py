@@ -1,11 +1,10 @@
 import gi
 gi.require_version("Gtk", "3.0")
-gi.require_version('WebKit', '3.0')
-from gi.repository import Gtk, WebKit
+from gi.repository import Gtk
 
 from tagContainer import tagBox
-
 from Vinebooru import Vinebooru
+from DynamicMedia import DynamicMedia
 
 tagkeys=['artist', 'tags']
 
@@ -100,7 +99,7 @@ class postView(Gtk.Box):
 		self.getClient=booruWidget.search.getClient
 		
 		#web view for displaying media
-		self.content=WebKit.WebView()
+		self.content=DynamicMedia()
 		
 		#pull content together
 		sw=Gtk.ScrolledWindow()
@@ -177,7 +176,7 @@ class postView(Gtk.Box):
 			client.fetchPost(post)
 		
 		url=post['file_url']
-		self.content.load_uri(url)
+		self.content.load(url=url)
 		
 		tags={}
 		for key in tagkeys:

@@ -1,2 +1,4 @@
 #line format: site	api_version
+#api version is optional
 e926.net	1.13.0+update.2
+e621.net
