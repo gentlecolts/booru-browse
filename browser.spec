@@ -4,11 +4,6 @@
 import os
 import site
 
-import gi
-gi.require_version('WebKit', '3.0')
-from gi.repository import WebKit
-
-
 block_cipher = None
 
 typelib_path = os.path.join(site.getsitepackages()[1], 'gnome', 'lib', 'girepository-1.0')
@@ -31,7 +26,7 @@ a = Analysis(['browser.py', 'browser.spec'],
 	#pathex=['E:\\booru-browse'],
 	binaries=binaries,
 	datas=modules,
-	hiddenimports=['pybooru','pyquery', 'queue', 'pprint', 're', 'urllib', 'concurrent.futures','gi.repository.Webkit'],
+	hiddenimports=['pybooru','pyquery', 'queue', 'pprint', 're', 'urllib', 'concurrent.futures'],
 	hookspath=[],
 	runtime_hooks=[],
 	excludes=[],

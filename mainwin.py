@@ -42,11 +42,11 @@ class booruView(Gtk.Box):
 		#print("new search terms: ", query)
 		client=self.search.getClient()
 		if client and query:
-			try:
+			#try:
 				self.postPreview.updateSearch(self.search.getClient(), query)
-			except Exception as e:
-				print(e)
-				alert(self, str(e))
+			#except Exception as e:
+			#	print(e)
+			#	alert(self, str(e))
 	
 	def openImage(self, imagedic, reload=True):
 		#TODO:swap out the tiles with the post itself

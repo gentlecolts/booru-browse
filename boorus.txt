@@ -1,4 +1,7 @@
 #line format: site	api_version
 #api version is optional
-e926.net	1.13.0+update.2
-e621.net
+https://e926.net	1.13.0+update.2
+
+#these dont appear to work, investigate
+the-collection.booru.org	1.13.0+update.2
+steambanners.booru.org	1.13.0+update.2

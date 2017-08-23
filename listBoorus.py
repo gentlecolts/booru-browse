@@ -16,6 +16,7 @@ class booruLister(Gtk.ComboBoxText):
 		try:
 			with open("boorus.txt") as f:
 				for line in f.readlines():
+					line=line.strip()
 					if line and not line.startswith("#"):
 						self.sites.append(line.split())
 		except FileNotFoundError:
@@ -44,7 +45,7 @@ class booruLister(Gtk.ComboBoxText):
 			self.booru=Vinebooru()
 		else:
 			if not target.startswith('http'):
-				target="https://"+target
+				target="http://"+target
 			self.booru=pybooru.Moebooru(site_url=target, api_version="1.13.0+update.2")
 		
 		self.parent.updateSearch()
