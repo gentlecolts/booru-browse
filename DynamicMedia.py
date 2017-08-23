@@ -20,6 +20,11 @@ class DynamicMedia(Gtk.EventBox):
 		self.buf=None
 		self.fit=True
 		
+		def toggle(w, e):
+			self.fit=not self.fit
+		
+		self.connect("button_press_event", toggle)
+		
 		#TODO: clicking the image should toggle whether the image resizes to container or is full size
 		#TODO: Drag n drop support
 		#self.connect('expose-event', self.on_image_resize)
@@ -86,9 +91,9 @@ if __name__=="__main__":
 	win.set_title("Title")
 	
 	#img=DynamicMedia('8db.jpg')
-	img=DynamicMedia('54a.gif')
+	#img=DynamicMedia('54a.gif')
 	#img=DynamicMedia('Red-Big-Frog-Wallpaper-Photos-202.jpg')
-	#img=DynamicMedia(url='http://i0.kym-cdn.com/photos/images/newsfeed/001/256/886/074.gif')
+	img=DynamicMedia(url='http://i0.kym-cdn.com/photos/images/newsfeed/001/256/886/074.gif')
 	sw=Gtk.ScrolledWindow()
 	sw.add(img)
 	win.add(sw)
