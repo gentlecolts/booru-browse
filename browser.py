@@ -19,7 +19,7 @@ print("Browser is starting")
 
 win=Gtk.Window()
 win.connect("delete-event", lambda wid, event:Gtk.main_quit())
-win.set_size_request(1280, 720)
+win.resize(1280, 720)
 win.set_title("Booru Browser")
 
 print("window created, adding content")

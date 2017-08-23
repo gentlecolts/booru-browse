@@ -25,7 +25,7 @@ class booruView(Gtk.Box):
 		self.post.hide()
 		
 		self.floater=Gtk.Window()
-		self.floater.set_size_request(1280, 720)
+		self.floater.resize(1280, 720)
 		def closeFloat(w, e):
 			self.floater.hide()
 			self.search.single.set_active(True)
