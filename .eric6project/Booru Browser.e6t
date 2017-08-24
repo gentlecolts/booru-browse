@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-24, 15:34:33 -->
+<!-- Saved: 2017-08-24, 16:33:37 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{b6043937-992d-4194-a23a-c55486dfd42c}">
@@ -157,31 +157,58 @@
       <Linenumber>116</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{dde2b360-e3b3-4272-8524-d1e1ecc73c4b}">
+  <Task priority="1" completed="False" type="1" uid="{4a3568ed-cb1e-461e-8d46-044e84648420}">
     <Summary>TODO:swap out the tiles with the post itself</Summary>
     <Description></Description>
-    <Created>2017-08-24, 15:20:43</Created>
+    <Created>2017-08-24, 15:41:59</Created>
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>54</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{f03245e8-d8cd-47db-9c40-a224cc0c0f74}">
-    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+  <Task priority="1" completed="False" type="1" uid="{2d260da5-3430-4324-8eb6-017d564a9bc2}">
+    <Summary>TODO: should be able to go across pages</Summary>
     <Description></Description>
-    <Created>2017-08-24, 15:34:30</Created>
+    <Created>2017-08-24, 15:41:59</Created>
     <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>174</Linenumber>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>75</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{7b5ecacb-97d0-40e8-a9bd-23f166c4586b}">
-    <Summary>TODO: need to fetch comments</Summary>
+  <Task priority="1" completed="False" type="1" uid="{61e64e25-b2ab-4292-bfe7-d170717a06f6}">
+    <Summary>TODO: visual indication of the current post (should go in openImage)</Summary>
     <Description></Description>
-    <Created>2017-08-24, 15:34:30</Created>
+    <Created>2017-08-24, 15:41:59</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>76</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{9761c431-5030-4693-9fd7-b29cf043e6d8}">
+    <Summary>TODO: tie these buttons to arrow keys</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 15:43:32</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>196</Linenumber>
+      <Linenumber>126</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{81ab02a6-7855-421c-b125-c0b590029488}">
+    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 15:43:32</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>175</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a592f8a3-f6da-45cd-b736-6c15cf545a7c}">
+    <Summary>TODO: need to fetch comments</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 15:43:32</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>197</Linenumber>
     </Resource>
   </Task>
 </Tasks>

@@ -72,6 +72,8 @@ class booruView(Gtk.Box):
 			self.post.show()
 	
 	def next(self, jump=1):
+		#TODO: should be able to go across pages
+		#TODO: visual indication of the current post (should go in openImage)
 		page=self.postPreview.results
 		pindex=page.index(self.currentPost)
 		

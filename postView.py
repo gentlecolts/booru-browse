@@ -123,6 +123,7 @@ class postView(Gtk.Box):
 		self.backbtn.set_always_show_image(True)
 		self.backbtn.connect("clicked", lambda btn:booruWidget.closeImage())
 		
+		#TODO: tie these buttons to arrow keys
 		prev=Gtk.Button(stock='gtk-media-previous')
 		prev.set_always_show_image(True)
 		
