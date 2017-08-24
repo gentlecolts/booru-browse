@@ -53,6 +53,11 @@ class booruView(Gtk.Box):
 		#from pprint import pprint
 		#pprint(imagedic)
 		
+		if 'artist' in imagedic:
+			self.floater.set_title("Post View - "+imagedic['artist'])
+		else:
+			self.floater.set_title("Post View")
+		
 		if reload:
 			self.post.load(imagedic)
 		
