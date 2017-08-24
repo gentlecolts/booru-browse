@@ -1,45 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-24, 09:43:54 -->
+<!-- Saved: 2017-08-24, 14:19:39 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{14b7dd35-65ea-43c0-9e73-5b7f8c379eb1}">
-    <Summary>TODO: clicking the image should toggle whether the image resizes to container or is full size</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:34:35</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>28</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{dee60c63-e46d-4be4-8838-919ee90c9a0c}">
-    <Summary>TODO: Drag n drop support</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:34:35</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>29</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{9b48321f-6e96-4fbf-88a7-b53cf9777e2e}">
-    <Summary>TODO: use loader's</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:34:35</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>50</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{57fca37f-87e3-495f-89fd-e8a14f179fc4}">
-    <Summary>TODO: in the future, should empty current content</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:34:35</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>62</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="1" uid="{b6043937-992d-4194-a23a-c55486dfd42c}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
@@ -175,22 +139,67 @@
       <Linenumber>196</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{6db41bf0-f98d-4cc4-b60a-0b2e08ebce41}">
+  <Task priority="1" completed="False" type="1" uid="{7681135a-aa84-4184-940b-4e01364b8715}">
     <Summary>TODO: gather comments</Summary>
     <Description></Description>
-    <Created>2017-08-24, 09:43:10</Created>
+    <Created>2017-08-24, 14:15:22</Created>
     <Resource>
       <Filename>Vinebooru.py</Filename>
       <Linenumber>62</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{753dc15d-99c3-4e75-aae4-ebfb5a2562dc}">
+  <Task priority="1" completed="False" type="1" uid="{17d433a4-675c-4db5-a7fa-f8d6133e0f1e}">
     <Summary>TODO:swap out the tiles with the post itself</Summary>
     <Description></Description>
-    <Created>2017-08-24, 09:43:51</Created>
+    <Created>2017-08-24, 14:15:32</Created>
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>52</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a79db980-6d0f-4092-a811-016ee46844b1}">
+    <Summary>TODO: clicking the image should toggle whether the image resizes to container or is full size</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:18:53</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>27</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a4c45298-a1ff-4b6f-b4c8-9f8695e7fa5e}">
+    <Summary>TODO: Drag n drop support</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:18:53</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>28</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{43655958-fe2d-47c5-8e3e-a0c7b9f43df1}">
+    <Summary>TODO: use loader's</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:18:53</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>50</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{2562992f-9b72-489a-ab11-076931e936d9}">
+    <Summary>TODO: in the future, should empty current content</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:18:53</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>66</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{e17dff03-042e-4ac2-80a9-6252dad94afa}">
+    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:18:53</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>90</Linenumber>
     </Resource>
   </Task>
 </Tasks>

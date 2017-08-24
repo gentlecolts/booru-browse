@@ -33,7 +33,7 @@ class Vinebooru():
 				'preview_url':baseurl+tag.find('img').attrib['src'],
 				'post_page_url':baseurl+tag.attrib['href'], 
 			}
-			post['artist']=" ".join([x for x in post['tags'].split() if x.lower().startswith("artist:")])
+			post['artist']=[x for x in post['tags'].split() if x.lower().startswith("artist:")]
 			
 			results.append(post)
 		

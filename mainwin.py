@@ -54,7 +54,7 @@ class booruView(Gtk.Box):
 		#pprint(imagedic)
 		
 		if 'artist' in imagedic:
-			self.floater.set_title("Post View - "+imagedic['artist'])
+			self.floater.set_title("Post View - "+" ".join(imagedic['artist']))
 		else:
 			self.floater.set_title("Post View")
 		

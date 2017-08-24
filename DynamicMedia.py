@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject, GdkPixbuf, GLib
+from gi.repository import Gtk, GObject, GdkPixbuf
 
 import urllib.request
 import os
 from threading import Thread
 
-def pixbuf_anim_copy_resize(buf:GdkPixbuf.PixbufAnimation, width, height):
-	return buf
+scale_method=GdkPixbuf.InterpType.BILINEAR
 
 class DynamicMedia(Gtk.EventBox):
 	def __init__(self, path=None, url=None):
@@ -38,6 +37,7 @@ class DynamicMedia(Gtk.EventBox):
 		if path:
 			self.name=os.path.basename(path)
 			self.buf=GdkPixbuf.PixbufAnimation.new_from_file(path)
+			self.iter=self.buf.get_iter()
 			self.media.set_from_animation(self.buf)
 		elif url:
 			
@@ -52,7 +52,11 @@ class DynamicMedia(Gtk.EventBox):
 				loader.write(source.read())
 				loader.close()
 				
+				self.name=source.info().get_filename()
+				print("got filename: ", self.name)
+				
 				self.buf=loader.get_animation()
+				self.iter=self.buf.get_iter()
 				
 				GObject.idle_add(lambda:self.media.set_from_animation(self.buf))
 			
@@ -77,10 +81,13 @@ class DynamicMedia(Gtk.EventBox):
 		
 		if self.buf.is_static_image():
 			self.media.set_from_pixbuf(
-				self.buf.get_static_image().scale_simple(x,y,GdkPixbuf.InterpType.BILINEAR)
+				self.buf.get_static_image().scale_simple(x,y,scale_method)
 			)
-		else:
-			"nothin"
+		elif hasattr(self, 'iter') and self.iter.advance():
+			self.media.set_from_pixbuf(
+				self.iter.get_pixbuf().scale_simple(x,y,scale_method)
+			)
+			#TODO: the best approach here might just be doing the animation stepping myself, for both static and not
 			#self.media.set_from_animation(pixbuf_anim_copy_resize(self.buf, x, y))
 		return True
 
@@ -91,9 +98,9 @@ if __name__=="__main__":
 	win.set_title("Title")
 	
 	#img=DynamicMedia('8db.jpg')
-	#img=DynamicMedia('54a.gif')
+	img=DynamicMedia('54a.gif')
 	#img=DynamicMedia('Red-Big-Frog-Wallpaper-Photos-202.jpg')
-	img=DynamicMedia(url='http://i0.kym-cdn.com/photos/images/newsfeed/001/256/886/074.gif')
+	#img=DynamicMedia(url='http://i0.kym-cdn.com/photos/images/newsfeed/001/256/886/074.gif')
 	sw=Gtk.ScrolledWindow()
 	sw.add(img)
 	win.add(sw)
@@ -101,3 +108,4 @@ if __name__=="__main__":
 
 	GObject.threads_init()
 	Gtk.main()
+
