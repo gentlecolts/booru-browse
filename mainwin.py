@@ -35,6 +35,8 @@ class booruView(Gtk.Box):
 		
 		self.show_all()
 		self.setSingleWin(False)
+		
+		self.currentPost=None
 	
 	def updateSearch(self):
 		"""add new search terms and update the view"""
@@ -53,6 +55,8 @@ class booruView(Gtk.Box):
 		#from pprint import pprint
 		#pprint(imagedic)
 		
+		self.currentPost=imagedic
+		
 		if 'artist' in imagedic:
 			self.floater.set_title("Post View - "+" ".join(imagedic['artist']))
 		else:
@@ -66,6 +70,14 @@ class booruView(Gtk.Box):
 			self.postPreview.hide()
 			self.post.set_no_show_all(False)
 			self.post.show()
+	
+	def next(self, jump=1):
+		page=self.postPreview.results
+		pindex=page.index(self.currentPost)
+		
+		#python allowing this syntax is rediculous, but since it does, may as well make use of
+		if 0<=pindex+jump<len(page):
+			self.openImage(page[pindex+jump])
 	
 	def closeImage(self):
 		self.post.set_no_show_all(True)

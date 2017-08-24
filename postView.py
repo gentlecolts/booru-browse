@@ -125,14 +125,14 @@ class postView(Gtk.Box):
 		
 		prev=Gtk.Button(stock='gtk-media-previous')
 		prev.set_always_show_image(True)
-		#TODO: add functionality
-		prev.set_sensitive(False)
 		
 		next=Gtk.Button(stock='gtk-media-next')
 		next.set_always_show_image(True)
 		next.set_image_position(Gtk.PositionType.RIGHT)
-		#TODO: add functionality
-		next.set_sensitive(False)
+		
+		#even though this maybe seems not specially intuitive, having next go to newer posts seems to be the best approach
+		prev.connect("clicked", lambda b:booruWidget.next(1))
+		next.connect("clicked", lambda b:booruWidget.next(-1))
 		
 		def makeToggle(name, target):
 			frame=Gtk.Frame(label=name)

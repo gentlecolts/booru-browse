@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-24, 14:19:39 -->
+<!-- Saved: 2017-08-24, 15:34:33 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{b6043937-992d-4194-a23a-c55486dfd42c}">
@@ -85,60 +85,6 @@
       <Linenumber>37</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{91e3057a-03e5-48d1-ae6e-6479cbb1de0f}">
-    <Summary>TODO: remove blacklisted items from results</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:34:35</Created>
-    <Resource>
-      <Filename>tileView.py</Filename>
-      <Linenumber>87</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{2aa4cb8c-63a1-4b43-b146-d0c0ceb31d57}">
-    <Summary>TODO: is it possible to set image size request?  size info is in the json</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:34:35</Created>
-    <Resource>
-      <Filename>tileView.py</Filename>
-      <Linenumber>114</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{0fdaac99-8c3e-4335-b2de-386a14d27821}">
-    <Summary>TODO: add functionality</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:38:26</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>128</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{6878bda1-18c8-4043-af67-6aaafaf83676}">
-    <Summary>TODO: add functionality</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:38:26</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>134</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{b067f1ba-4e55-46e1-baf8-d243127c0697}">
-    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:38:26</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>174</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{c19f1ab7-d5eb-4398-b4a9-1e46ab69952d}">
-    <Summary>TODO: need to fetch comments</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 09:38:26</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>196</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="1" uid="{7681135a-aa84-4184-940b-4e01364b8715}">
     <Summary>TODO: gather comments</Summary>
     <Description></Description>
@@ -146,15 +92,6 @@
     <Resource>
       <Filename>Vinebooru.py</Filename>
       <Linenumber>62</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{17d433a4-675c-4db5-a7fa-f8d6133e0f1e}">
-    <Summary>TODO:swap out the tiles with the post itself</Summary>
-    <Description></Description>
-    <Created>2017-08-24, 14:15:32</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>52</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" type="1" uid="{a79db980-6d0f-4092-a811-016ee46844b1}">
@@ -200,6 +137,51 @@
     <Resource>
       <Filename>DynamicMedia.py</Filename>
       <Linenumber>90</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{81e9b582-af13-4bd5-93c0-3e7eace3b471}">
+    <Summary>TODO: remove blacklisted items from results</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:54:43</Created>
+    <Resource>
+      <Filename>tileView.py</Filename>
+      <Linenumber>89</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a65d804f-9d96-42c6-805b-63b51ae8e2e2}">
+    <Summary>TODO: is it possible to set image size request?  size info is in the json</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 14:54:43</Created>
+    <Resource>
+      <Filename>tileView.py</Filename>
+      <Linenumber>116</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{dde2b360-e3b3-4272-8524-d1e1ecc73c4b}">
+    <Summary>TODO:swap out the tiles with the post itself</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 15:20:43</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>54</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{f03245e8-d8cd-47db-9c40-a224cc0c0f74}">
+    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 15:34:30</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>174</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{7b5ecacb-97d0-40e8-a9bd-23f166c4586b}">
+    <Summary>TODO: need to fetch comments</Summary>
+    <Description></Description>
+    <Created>2017-08-24, 15:34:30</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>196</Linenumber>
     </Resource>
   </Task>
 </Tasks>

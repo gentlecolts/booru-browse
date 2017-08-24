@@ -71,6 +71,8 @@ class tileView(Gtk.Box):
 		self.pack_start(controlBox, expand=False, fill=True, padding=0)
 		self.show_all()
 		
+		self.results=[]
+		
 	def refresh(self):
 		#clear the grid
 		tiles=self.grid.get_children()
@@ -132,6 +134,8 @@ class tileView(Gtk.Box):
 				y+=1
 			self.grid.attach(self.cache[id], x, y, 1, 1)
 			x+=1
+		
+		self.results=results
 	
 	def updateSearch(self, client, query):
 		"""reset everything and update"""
