@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-#import gi
-#gi.require_version("Gtk", "3.0")
-#from gi.repository import Gtk, GObject
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
 
 blacklist=[]
 default_file="blacklist.txt"
@@ -16,14 +16,62 @@ try:
 except:
 	print("error loading from {}, skipping".format(default_file))
 
+editor=Gtk.TextView()
+edWin=Gtk.Window()
+def assemble():
+	def close():
+		edWin.hide()
+		return True
+	def submit():
+		#write out the buffer
+		tbuffer=editor.get_buffer()
+		
+		with open(default_file, 'w') as f:
+			f.write(tbuffer.get_text(tbuffer.get_start_iter(), tbuffer.get_end_iter(), True))
+		#reload the blacklist
+		load()
+		#do anything in the normal close function
+		close()
+	
+	submitbtn=Gtk.Button("Submit")
+	submitbtn.connect("clicked", lambda b:submit())
+	closebtn=Gtk.Button("Cancel")
+	closebtn.connect("clicked", lambda b:close())
+	
+	buttonbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+	buttonbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+	buttonbar.pack_start(submitbtn, expand=False, fill=False, padding=0)
+	buttonbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+	buttonbar.pack_start(closebtn, expand=False, fill=False, padding=0)
+	buttonbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
+	
+	sw=Gtk.ScrolledWindow()
+	sw.add(editor)
+	
+	mainbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+	mainbox.pack_start(sw, expand=True, fill=True, padding=0)
+	mainbox.pack_start(buttonbar, expand=False, fill=True, padding=0)
+	
+	edWin.set_title("Blacklist")
+	edWin.add(mainbox)
+	edWin.resize(640, 720)
+	edWin.connect("delete-event", lambda w, e:close())
+assemble()
+
 def gui_edit():
 	"show a gui for editing the blacklist"
-	print("showing blacklist gui")
+	print("showing blacklist gui")\
+	
+	with open(default_file) as f:
+		editor.get_buffer().set_text(f.read())
+	
+	edWin.show_all()
 
 def is_blocked(tagstr:str):
 	tags=tagstr.lower().split()
 	
 	def testtag(block_item):
+		block_item=block_item.strip()
 		negated=block_item.startswith('-')
 		block_item=block_item[1:] if negated else block_item
 		

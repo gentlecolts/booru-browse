@@ -89,7 +89,7 @@ class tileView(Gtk.Box):
 		results=self.client.post_list(tags=self.query, page=self.page)
 		
 		#prune blacklisted items
-		results=[post for post in results if not blacklist.is_blocked(results['tags'])]
+		results=[post for post in results if not blacklist.is_blocked(post['tags'])]
 		
 		#TODO: remove blacklisted items from results
 		
