@@ -5,6 +5,8 @@ from gi.repository import Gtk, GObject
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+import blacklist
+
 def loadurl(gtkimage, url):
 	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 	
@@ -85,6 +87,9 @@ class tileView(Gtk.Box):
 		
 		#fetch new results
 		results=self.client.post_list(tags=self.query, page=self.page)
+		
+		#prune blacklisted items
+		results=[post for post in results if not blacklist.is_blocked(results['tags'])]
 		
 		#TODO: remove blacklisted items from results
 		

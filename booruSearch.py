@@ -4,6 +4,7 @@ from gi.repository import Gtk
 
 from tagContainer import tagBox
 from listBoorus import booruLister
+import blacklist
 
 class searchWidget(Gtk.Box):
 	"""search bar"""
@@ -50,9 +51,7 @@ class searchWidget(Gtk.Box):
 		
 		blocklister=Gtk.Button(label="Blocklist")
 		buttonRow.pack_start(blocklister, expand=False, fill=True, padding=0)
-		#TODO: attach event listeners
-		#TODO: load blacklist (when site is set?)
-		blocklister.set_sensitive(False)#TODO: remove this when button works
+		blocklister.connect("clicked", lambda b:blacklist.gui_edit())
 		
 		login=Gtk.Button(label="Login")
 		buttonRow.pack_start(login, expand=False, fill=True, padding=0)

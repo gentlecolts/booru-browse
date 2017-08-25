@@ -1,0 +1,20 @@
+#globally blacklisted tags go here
+#blank lines and lines beginning with # are ignored
+#separate each blocked query with a newline
+#place multiple tags on one line to block both
+#negation is supported
+
+#for example, to block any posts containing tag1 or tag2:
+#tag1
+#tag2
+
+#to block posts containing BOTH tag1 AND tag2:
+#tag1 tag2
+
+#to block posts that dont contain tag1:
+#-tag1
+
+#to block posts that contain tag1, unless tag2 is also present
+#tag1 -tag2
+
+#as many tags as needed can be placed on a line
