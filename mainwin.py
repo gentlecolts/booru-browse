@@ -51,14 +51,14 @@ class booruView(Gtk.Box):
 			#	alert(self, str(e))
 	
 	def openImage(self, imagedic, reload=True):
-		#TODO:swap out the tiles with the post itself
 		#from pprint import pprint
 		#pprint(imagedic)
 		
 		self.currentPost=imagedic
 		
 		if 'artist' in imagedic:
-			self.floater.set_title("Post View - "+" ".join(imagedic['artist']))
+			self.floater.set_title("Post View - {}".format(" ".join(imagedic['artist'])))
+			#self.floater.set_title("Post View -\t{}\t- {}".format(" ".join(imagedic['artist']), imagedic['tags']))
 		else:
 			self.floater.set_title("Post View")
 		
@@ -73,7 +73,7 @@ class booruView(Gtk.Box):
 	
 	def next(self, jump=1):
 		#TODO: should be able to go across pages
-		#TODO: visual indication of the current post (should go in openImage)
+		#TODO: visual indication of the currently loaded post (should probably go in openImage)
 		page=self.postPreview.results
 		pindex=page.index(self.currentPost)
 		

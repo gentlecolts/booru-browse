@@ -1,187 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-08-25, 18:21:08 -->
+<!-- Saved: 2017-08-29, 11:11:54 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{f89f75de-07a7-4e34-afef-e4a0363c3a2a}">
-    <Summary>TODO: clicking the image should toggle whether the image resizes to container or is full size</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>27</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{290dc37b-0db7-4b8f-a558-0be038e2f76a}">
-    <Summary>TODO: Drag n drop support</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>28</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{6733eb93-48b9-4b88-bd9a-e74fed7bdfd1}">
-    <Summary>TODO: use loader's</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>50</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{d3d001da-40ce-4f9d-8a7b-027bca8d75b9}">
-    <Summary>TODO: in the future, should empty current content</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>66</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{7834ba15-6aa3-4ac4-b0a8-97bc6143f2d6}">
-    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>90</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{cb31ff75-2948-4930-8938-561dbb4fee4b}">
+  <Task priority="1" completed="False" type="1" uid="{b9337a8a-98ab-4ed8-86e2-e189bb5540d3}">
     <Summary>TODO: gather comments</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 08:54:28</Created>
     <Resource>
       <Filename>Vinebooru.py</Filename>
       <Linenumber>62</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{2d17c8b1-b50b-43d1-86f5-b3baa44cd492}">
+  <Task priority="1" completed="False" type="1" uid="{83b8b2b4-5bd6-4266-bec7-50e843596fde}">
     <Summary>TODO: username/password/tokens/etc</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 08:54:28</Created>
     <Resource>
       <Filename>listBoorus.py</Filename>
       <Linenumber>37</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{e7f9d1fb-46ca-46f8-9e49-66e07f9447fa}">
-    <Summary>TODO:swap out the tiles with the post itself</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>54</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{e26a2f19-b535-47f6-9f41-0e722cb0b63c}">
-    <Summary>TODO: should be able to go across pages</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>75</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{e157ed58-f6b2-44ff-af0e-f19dffe07190}">
-    <Summary>TODO: visual indication of the current post (should go in openImage)</Summary>
-    <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>76</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{4a1a305e-7156-455f-810d-ae714c6f22eb}">
+  <Task priority="1" completed="False" type="1" uid="{693851ce-493f-4037-acb9-bf5a114925fd}">
     <Summary>TODO: tie these buttons to arrow keys</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 08:54:28</Created>
     <Resource>
       <Filename>postView.py</Filename>
       <Linenumber>126</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{666da0eb-866d-4aa1-89e9-a7310412625e}">
+  <Task priority="1" completed="False" type="1" uid="{fc141ecc-a0f7-403e-95e8-6dd3edde81f3}">
     <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 08:54:28</Created>
     <Resource>
       <Filename>postView.py</Filename>
       <Linenumber>175</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{ad761e5d-290e-4af0-aca3-749acf2fac74}">
+  <Task priority="1" completed="False" type="1" uid="{cab6cb97-c8f4-4b6e-99fa-cb41a632896c}">
     <Summary>TODO: need to fetch comments</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 08:54:28</Created>
     <Resource>
       <Filename>postView.py</Filename>
       <Linenumber>197</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{f8325bf2-246e-4ec3-8722-7b16fe5ed250}">
-    <Summary>TODO: remove blacklisted items from results</Summary>
+  <Task priority="1" completed="False" type="1" uid="{0a45f018-410d-499e-8398-fbd0fea443e5}">
+    <Summary>TODO: if this leaves us with nothing (had content before, none now) then automatically go to next page, may need to do this in a differnet function</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 09:00:06</Created>
     <Resource>
       <Filename>tileView.py</Filename>
-      <Linenumber>94</Linenumber>
+      <Linenumber>92</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{a43fcf96-a9ee-4ea0-a205-70b3337f533d}">
+  <Task priority="1" completed="False" type="1" uid="{27109f7b-599a-44d6-a3b1-605c7fc5657a}">
     <Summary>TODO: is it possible to set image size request?  size info is in the json</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:07:57</Created>
+    <Created>2017-08-29, 09:00:06</Created>
     <Resource>
       <Filename>tileView.py</Filename>
-      <Linenumber>121</Linenumber>
+      <Linenumber>120</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{1f481efe-2903-4aa6-86bd-dd7fbebde4e5}">
+  <Task priority="1" completed="False" type="1" uid="{4de91b20-3c96-44ba-9a06-8daf674e8488}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:21:05</Created>
+    <Created>2017-08-29, 10:41:31</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>22</Linenumber>
+      <Linenumber>49</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{05cb5e89-77ff-4b89-bb31-579f1b024c81}">
+  <Task priority="1" completed="False" type="1" uid="{1724ec8d-3deb-4c70-8233-7a0cc87c4bba}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:21:05</Created>
+    <Created>2017-08-29, 10:41:31</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
-      <Linenumber>50</Linenumber>
+      <Linenumber>57</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{a869995b-9ee6-4960-aac2-ab434d4ce128}">
-    <Summary>TODO: attach event listeners</Summary>
+  <Task priority="1" completed="False" type="1" uid="{256b8d98-3681-475e-9218-596654142372}">
+    <Summary>TODO: what login info can be stored securely (username? tokens?)?</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:21:05</Created>
+    <Created>2017-08-29, 10:41:31</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>58</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{f52513a9-7e08-4b2f-ace1-3db80f1ea472}">
-    <Summary>TODO: what login info can be stored securely (username? tokens?)?</Summary>
+  <Task priority="1" completed="False" type="1" uid="{63fefad2-e8ae-4ecd-b97e-bbc547c3428e}">
+    <Summary>TODO: remove this when button works</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:21:05</Created>
+    <Created>2017-08-29, 10:41:31</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>59</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{fd850195-89c9-49a6-ba01-e15bd34f6a02}">
-    <Summary>TODO: remove this when button works</Summary>
+  <Task priority="1" completed="False" type="1" uid="{6a567c3a-b6ff-469f-ba2d-469c6c736823}">
+    <Summary>TODO: Drag n drop support</Summary>
     <Description></Description>
-    <Created>2017-08-25, 18:21:05</Created>
+    <Created>2017-08-29, 10:41:42</Created>
     <Resource>
-      <Filename>booruSearch.py</Filename>
-      <Linenumber>60</Linenumber>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>27</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{136d58ae-00be-4f9e-9b4c-eb30fe02db43}">
+    <Summary>TODO: in the future, should empty current content</Summary>
+    <Description></Description>
+    <Created>2017-08-29, 10:41:42</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>63</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{0761b82c-4479-408f-a717-88eaf75a5643}">
+    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
+    <Description></Description>
+    <Created>2017-08-29, 10:41:42</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>87</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{e7c5b98a-f87a-4f00-807e-20a4c4364097}">
+    <Summary>TODO: should be able to go across pages</Summary>
+    <Description></Description>
+    <Created>2017-08-29, 11:11:51</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>75</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{616976f2-9ee4-43c8-9b98-696a7a24e5f3}">
+    <Summary>TODO: visual indication of the currently loaded post (should probably go in openImage)</Summary>
+    <Description></Description>
+    <Created>2017-08-29, 11:11:51</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>76</Linenumber>
     </Resource>
   </Task>
 </Tasks>

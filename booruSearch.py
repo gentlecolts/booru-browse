@@ -19,7 +19,6 @@ class searchWidget(Gtk.Box):
 		#search related buttons
 		self.searchbar=Gtk.SearchEntry()
 		buttonRow.pack_start(self.searchbar, expand=True, fill=True, padding=0)
-		#TODO: attach event listeners
 		
 		searchbutton=Gtk.Button(label="Update Search")
 		buttonRow.pack_start(searchbutton, expand=False, fill=True, padding=0)

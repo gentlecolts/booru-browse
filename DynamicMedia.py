@@ -24,7 +24,6 @@ class DynamicMedia(Gtk.EventBox):
 		
 		self.connect("button_press_event", toggle)
 		
-		#TODO: clicking the image should toggle whether the image resizes to container or is full size
 		#TODO: Drag n drop support
 		#self.connect('expose-event', self.on_image_resize)
 		
@@ -46,8 +45,6 @@ class DynamicMedia(Gtk.EventBox):
 				source=urllib.request.urlopen(request)
 				
 				loader=GdkPixbuf.PixbufLoader()
-				
-				#TODO: use loader's 
 				
 				loader.write(source.read())
 				loader.close()

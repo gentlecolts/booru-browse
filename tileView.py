@@ -89,9 +89,8 @@ class tileView(Gtk.Box):
 		results=self.client.post_list(tags=self.query, page=self.page)
 		
 		#prune blacklisted items
+		#TODO: if this leaves us with nothing (had content before, none now) then automatically go to next page, may need to do this in a differnet function
 		results=[post for post in results if not blacklist.is_blocked(post['tags'])]
-		
-		#TODO: remove blacklisted items from results
 		
 		#from pprint import pprint
 		#pprint(results)
