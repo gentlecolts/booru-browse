@@ -7,4 +7,5 @@ previous/next image tied to arrow keys too
 disk caching of preview thumbnails (?)
 ram and/or disk caching of viewed posts (?)
 if blacklist eliminates a whole page, auto skip to next/previous page
+need to be able to load comments
 

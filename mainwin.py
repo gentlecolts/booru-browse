@@ -1,6 +1,6 @@
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gtk, Gdk
 
 from booruSearch import searchWidget
 from tileView import tileView
@@ -32,6 +32,18 @@ class booruView(Gtk.Box):
 			return True
 		self.floater.connect('delete-event', closeFloat)
 		self.floater.set_title("Post View")
+		
+		#key navigation
+		def keyfn(w, e):
+			keyname=Gdk.keyval_name(e.keyval)
+			print(e.keyval, keyname)
+			if keyname=="Right":
+				self.next(1)
+			elif keyname=="Left":
+				self.next(-1)
+		self.floater.connect('key_press_event', keyfn)
+		#self.postPreview.connect('key_press_event', keyfn)
+		#self.post.connect('key_press_event', keyfn)
 		
 		self.show_all()
 		self.setSingleWin(False)
