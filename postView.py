@@ -135,18 +135,18 @@ class postView(Gtk.Box):
 		prev.connect("clicked", lambda b:booruWidget.next(1))
 		next.connect("clicked", lambda b:booruWidget.next(-1))
 		
+		#TODO: clean up this function
 		def makeToggle(name, target):
-			frame=Gtk.Frame(label=name)
-			button=Gtk.Switch()
-			frame.add(button)
+			button=Gtk.ToggleButton(name)
+			frame=button
 			
-			def onswitch(switch, param):
+			def onswitch(switch):
 				if switch.get_active():
 					target.show_all()
 				else:
 					target.hide()
 			
-			button.connect("notify::active",onswitch)
+			button.connect("toggled",onswitch)
 			
 			return (frame, button)
 		
@@ -154,15 +154,21 @@ class postView(Gtk.Box):
 		(commentframe, self.commentSwitch)=makeToggle("Comments", self.comments)
 		(sourceframe, self.sourceSwitch)=makeToggle("Source", self.sources)
 		
+		navbuttons=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		navbuttons.pack_start(prev, expand=False, fill=True, padding=5)
+		navbuttons.pack_start(next, expand=False, fill=True, padding=5)
+		
+		#TODO:toggle button for upscaling
+		togglebuttons=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+		togglebuttons.pack_start(Gtk.Label("Visibility: "), expand=False, fill=True, padding=0)
+		togglebuttons.pack_start(tagframe, expand=False, fill=True, padding=5)
+		togglebuttons.pack_start(commentframe, expand=False, fill=True, padding=5)
+		togglebuttons.pack_start(sourceframe, expand=False, fill=True, padding=5)
+		
 		self.toolbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 		self.toolbar.pack_start(self.backbtn, expand=True, fill=False, padding=0)
-		self.toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
-		self.toolbar.pack_start(prev, expand=False, fill=False, padding=5)
-		self.toolbar.pack_start(next, expand=False, fill=False, padding=5)
-		self.toolbar.pack_start(Gtk.Fixed(), expand=True, fill=True, padding=0)
-		self.toolbar.pack_start(tagframe, expand=False, fill=True, padding=0)
-		self.toolbar.pack_start(commentframe, expand=False, fill=True, padding=0)
-		self.toolbar.pack_start(sourceframe, expand=False, fill=True, padding=0)
+		self.toolbar.pack_start(navbuttons, expand=True, fill=False, padding=5)
+		self.toolbar.pack_start(togglebuttons, expand=True, fill=False, padding=0)
 		self.toolbar.show_all()
 		
 		
@@ -200,9 +206,11 @@ class postView(Gtk.Box):
 	def removeMedia(self):
 		self.remove(self.media)
 		self.remove(self.toolbar)
-		self.backbtn.hide()
+		#self.backbtn.hide()
+		self.backbtn.set_sensitive(False)
 	
 	def addMedia(self):
 		self.pack_end(self.media, expand=True, fill=True, padding=0)
 		self.pack_start(self.toolbar, expand=False, fill=True, padding=0)
-		self.backbtn.show()
+		#self.backbtn.show()
+		self.backbtn.set_sensitive(True)

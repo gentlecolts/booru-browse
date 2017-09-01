@@ -6,6 +6,7 @@ from gi.repository import Gtk, GObject, GdkPixbuf
 import urllib.request
 import os
 from threading import Thread
+import math
 
 scale_method=GdkPixbuf.InterpType.BILINEAR
 
@@ -18,6 +19,7 @@ class DynamicMedia(Gtk.EventBox):
 		self.name=""
 		self.buf=None
 		self.fit=True
+		self.allowUpscale=True
 		
 		def toggle(w, e):
 			self.fit=not self.fit
@@ -27,7 +29,13 @@ class DynamicMedia(Gtk.EventBox):
 		#TODO: Drag n drop support
 		#self.connect('expose-event', self.on_image_resize)
 		
-		self.add(self.media)
+		overlay=Gtk.Overlay()
+		overlay.add(self.media)
+		
+		self.progressbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+		overlay.add_overlay(self.progressbox)
+		
+		self.add(overlay)
 		
 		GObject.idle_add(self.resizeSelf)
 		self.load(path, url)
@@ -39,7 +47,11 @@ class DynamicMedia(Gtk.EventBox):
 			self.iter=self.buf.get_iter()
 			self.media.set_from_animation(self.buf)
 		elif url:
-			
+			#TODO:if url is cached, load it from cache and return before any of this
+			loadbar=Gtk.ProgressBar()
+			loadbar.set_text(url)
+			loadbar.show()
+			self.progressbox.add(loadbar)
 			def asyncload():
 				request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 				source=urllib.request.urlopen(request)
@@ -55,7 +67,12 @@ class DynamicMedia(Gtk.EventBox):
 				self.buf=loader.get_animation()
 				self.iter=self.buf.get_iter()
 				
-				GObject.idle_add(lambda:self.media.set_from_animation(self.buf))
+				def finish():
+					self.media.set_from_animation(self.buf)
+					self.progressbox.remove(loadbar)
+					return False
+				
+				GObject.idle_add(finish)
 			
 			t=Thread(target=asyncload, daemon=True)
 			t.start()
@@ -72,7 +89,7 @@ class DynamicMedia(Gtk.EventBox):
 		(x, y)=(container.width, container.height)
 		(realx, realy)=(self.buf.get_width(), self.buf.get_height())
 		
-		scale=min(x/realx, y/realy, 1) if self.fit else 1
+		scale=min(x/realx, y/realy, math.inf if self.allowUpscale else 1) if self.fit else 1
 		
 		(x, y)=(scale*realx, scale*realy)
 		

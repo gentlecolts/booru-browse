@@ -46,8 +46,8 @@ booruview.floater.connect('key_press_event', keyfn)
 win.connect('key_press_event', keyfn)
 
 def clickEvent(w, e):
-	print(type(w))
-	print(dir(e))
+	#print(type(w))
+	#print(dir(e))
 	win.set_focus(None)
 
 booruview.connect("button-press-event", clickEvent)
