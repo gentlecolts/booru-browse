@@ -1,11 +1,12 @@
+post loading progress
 batch downloading of search
 drag n drop saving of image
 alternative save method (right click?)
 button to toggle allowing for upscaling of image to fit window
-indication of currently selected post in tile previews (?)
-previous/next image tied to arrow keys too
-disk caching of preview thumbnails (?)
-ram and/or disk caching of viewed posts (?)
 if blacklist eliminates a whole page, auto skip to next/previous page
 need to be able to load comments
 
+maybes:
+indication of currently selected post in tile previews
+disk caching of preview thumbnails
+ram and/or disk caching of viewed posts

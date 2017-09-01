@@ -3,7 +3,7 @@ print("Loading resources")
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, Gdk
 
 from mainwin import booruView
 
@@ -25,6 +25,33 @@ win.set_title("Booru Browser")
 print("window created, adding content")
 
 booruview=booruView()
+
+#key navigation
+navblockers=[Gtk.SearchEntry]
+def keyfn(w, e):
+	keyname=Gdk.keyval_name(e.keyval)
+	#print(e.keyval, keyname)
+	
+	if type(w.get_focus()) in navblockers:
+		#print("cant navigate while entry is selected")
+		return
+	
+	if keyname=="Right":
+		booruview.next(1)
+	elif keyname=="Left":
+		booruview.next(-1)
+booruview.floater.connect('key_press_event', keyfn)
+#self.postPreview.connect('key_press_event', keyfn)
+#self.post.connect('key_press_event', keyfn)
+win.connect('key_press_event', keyfn)
+
+def clickEvent(w, e):
+	print(type(w))
+	print(dir(e))
+	win.set_focus(None)
+
+booruview.connect("button-press-event", clickEvent)
+
 win.add(booruview)
 win.show()
 
