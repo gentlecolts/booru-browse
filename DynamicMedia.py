@@ -15,6 +15,34 @@ except:
 
 scale_method=GdkPixbuf.InterpType.BILINEAR
 
+def loadWithProgress(url, progress):
+	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+	source=urllib.request.urlopen(request)
+	buff=bytes()
+	
+	length=source.getheader('content-length')
+	if length:
+		length=int(length)
+		blocksize=max(4096, length//100)
+	else:
+		"set up pulsing progress bar"
+	
+	def progUpdate():
+		have=len(buff)
+		if have<length:
+			progress.set_fraction(have/length)
+			return True
+		return False
+	GObject.idle_add(progUpdate)
+	
+	while True:
+		read=source.read(blocksize)
+		if read:
+			buff+=read
+		else:
+			break
+	return buff
+
 class DynamicMedia(Gtk.EventBox):
 	def __init__(self, path=None, url=None):
 		super(DynamicMedia, self).__init__()
@@ -58,16 +86,13 @@ class DynamicMedia(Gtk.EventBox):
 			loadbar.show()
 			self.progressbox.add(loadbar)
 			def asyncload():
-				request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-				source=urllib.request.urlopen(request)
-				
 				loader=GdkPixbuf.PixbufLoader()
 				
-				loader.write(source.read())
+				loader.write(loadWithProgress(url, loadbar))
 				loader.close()
 				
-				self.name=source.info().get_filename()
-				print("got filename: ", self.name)
+				#self.name=source.info().get_filename()
+				#print("got filename: ", self.name)
 				
 				self.buf=loader.get_animation()
 				self.iter=self.buf.get_iter()
