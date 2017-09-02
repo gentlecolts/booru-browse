@@ -1,24 +1,21 @@
 # -*- mode: python -*-
 #modified from spec file found at https://github.com/Aeva/nw-converter/commit/37d82f913d7a9e22c441de490fe7eefa7be220e0
 
-import os
+import os,glob
 import site
 
 block_cipher = None
 
 typelib_path = os.path.join(site.getsitepackages()[1], 'gnome', 'lib', 'girepository-1.0')
 
-modules=[
-	('postView.py','.'),
-	('Vinebooru.py','.'),
-	('listBoorus.py','.'),
-	('tagContainer.py','.'),
-	('errorReport.py','.'),
-	('mainwin.py','.'),
-	('tileView.py','.'),
-	('booruSearch.py','.'),
-	('DynamicMedia.py','.'),
-]
+
+modules=[]
+module_blacklist=["__init__.py","browser.py"]
+
+for f in glob.glob("*.py"):
+	if not f in module_blacklist:
+		print("adding module:",f)
+		modules.append((f,'.'))
 
 binaries=[(os.path.join(typelib_path, tl), 'gi_typelibs') for tl in os.listdir(typelib_path)]
 

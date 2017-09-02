@@ -6,7 +6,12 @@ from gi.repository import Gtk, GObject, GdkPixbuf
 import urllib.request
 import os
 from threading import Thread
-import math
+
+try:
+	import math
+	inf=math.inf
+except:
+	inf=float("inf")
 
 scale_method=GdkPixbuf.InterpType.BILINEAR
 
@@ -89,7 +94,7 @@ class DynamicMedia(Gtk.EventBox):
 		(x, y)=(container.width, container.height)
 		(realx, realy)=(self.buf.get_width(), self.buf.get_height())
 		
-		scale=min(x/realx, y/realy, math.inf if self.allowUpscale else 1) if self.fit else 1
+		scale=min(x/realx, y/realy, inf if self.allowUpscale else 1) if self.fit else 1
 		
 		(x, y)=(scale*realx, scale*realy)
 		

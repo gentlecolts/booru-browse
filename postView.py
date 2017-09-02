@@ -148,11 +148,11 @@ class postView(Gtk.Box):
 			
 			button.connect("toggled",onswitch)
 			
-			return (frame, button)
+			return button
 		
-		(tagframe, self.tagSwitch)=makeToggle("Tags", self.tags)
-		(commentframe, self.commentSwitch)=makeToggle("Comments", self.comments)
-		(sourceframe, self.sourceSwitch)=makeToggle("Source", self.sources)
+		self.tagSwitch=makeToggle("Tags", self.tags)
+		self.commentSwitch=makeToggle("Comments", self.comments)
+		self.sourceSwitch=makeToggle("Source", self.sources)
 		
 		navbuttons=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 		navbuttons.pack_start(prev, expand=False, fill=True, padding=5)
@@ -160,11 +160,20 @@ class postView(Gtk.Box):
 		
 		#TODO:toggle button for upscaling
 		togglebuttons=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-		togglebuttons.pack_start(Gtk.Label("Visibility: "), expand=False, fill=True, padding=0)
-		togglebuttons.pack_start(tagframe, expand=False, fill=True, padding=5)
-		togglebuttons.pack_start(commentframe, expand=False, fill=True, padding=5)
-		togglebuttons.pack_start(sourceframe, expand=False, fill=True, padding=5)
+		togglebuttons.pack_start(Gtk.Label("Viewer Switches: "), expand=False, fill=True, padding=0)
+		togglebuttons.pack_start(self.tagSwitch, expand=False, fill=True, padding=5)
+		togglebuttons.pack_start(self.commentSwitch, expand=False, fill=True, padding=5)
+		togglebuttons.pack_start(self.sourceSwitch, expand=False, fill=True, padding=5)
 		
+		self.upscale=Gtk.ToggleButton("Upscaling")
+		def toggleUpscale(switch):
+			self.content.allowUpscale=switch.get_active()
+		self.upscale.connect("toggled",toggleUpscale)
+		self.upscale.set_active(True)
+		
+		togglebuttons.pack_start(self.upscale, expand=False, fill=True, padding=5)
+		
+		#assemble the toolbar
 		self.toolbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 		self.toolbar.pack_start(self.backbtn, expand=True, fill=False, padding=0)
 		self.toolbar.pack_start(navbuttons, expand=True, fill=False, padding=5)
