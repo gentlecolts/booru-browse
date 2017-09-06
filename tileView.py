@@ -1,22 +1,9 @@
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
-
-import urllib.request
-from concurrent.futures import ThreadPoolExecutor
+from gi.repository import Gtk
 
 import blacklist
-
-def loadurl(gtkimage, url):
-	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-	
-	response=urllib.request.urlopen(request)
-	loader=gi.repository.GdkPixbuf.PixbufLoader()
-	
-	loader.write(response.read())
-	loader.close()
-	
-	GObject.idle_add(lambda:gtkimage.set_from_pixbuf(loader.get_pixbuf()))
+from BooruIcon import BooruIcon
 
 class tileView(Gtk.Box):
 	"""settings and stuff"""
@@ -88,49 +75,23 @@ class tileView(Gtk.Box):
 		#fetch new results
 		results=self.client.post_list(tags=self.query, page=self.page)
 		
-		#prune blacklisted items
-		#TODO: if this leaves us with nothing (had content before, none now) then automatically go to next page, may need to do this in a differnet function
-		results=[post for post in results if not blacklist.is_blocked(post['tags'])]
-		
 		#from pprint import pprint
 		#pprint(results)
 		
 		print("running loadLoop")
 		(x, y)=(0, 0)
-		try:
-			#python > 3.4 makes max workers equal to number of cores by default
-			cachepool=ThreadPoolExecutor()
-		except:
-			#but if this needs a parameter, just give it one
-			cachepool=ThreadPoolExecutor(max_workers=8)
 		
 		for post in results:
 			id=int(post["id"])
 			#cach the post thumbnail if we dont already have it
 			if not id in self.cache:
-				#set up the response
-				
-				#set the cache as an empty image now, just enough to add it to the grid
-				self.cache[id]=Gtk.EventBox()
-				cacheimage=Gtk.Image()
-				
-				self.cache[id].add(cacheimage)
-				self.cache[id].connect("button_press_event", click, post)
-				
-				#TODO: is it possible to set image size request?  size info is in the json
-				
 				#determine the url for the preview
 				preview=post['preview_url' if "preview_url" in post else 'preview_file_url']
 				if not preview.startswith('http'):
 					preview=self.client.site_url+preview
-					
-				#print(preview)
 				
-				#queue image for loading into cache
-				cachepool.submit(loadurl, cacheimage, preview)
-				#loadurl(cacheimage, preview)
-				
-				self.cache[id].show_all()
+				#add it in
+				self.cache[id]=BooruIcon(preview, post, click, post)
 			
 			#take image from the cache and put it in the grid
 			if x==self.colums:

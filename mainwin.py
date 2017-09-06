@@ -6,6 +6,8 @@ from booruSearch import searchWidget
 from tileView import tileView
 from postView import postView
 from errorReport import alert
+from BooruIcon import BooruIcon
+import blacklist
 
 class booruView(Gtk.Box):
 	"""Viewer for boorus"""
@@ -55,6 +57,11 @@ class booruView(Gtk.Box):
 		#pprint(imagedic)
 		
 		self.currentPost=imagedic
+		BooruIcon.activePost=imagedic['id']
+		
+		if blacklist.is_blocked(imagedic['tags']):
+			self.floater.set_title("Post View - [BLOCKED]")
+			return
 		
 		if 'artist' in imagedic:
 			self.floater.set_title("Post View - {}".format(" ".join(imagedic['artist'])))
