@@ -2,7 +2,6 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
-import blacklist
 from BooruIcon import BooruIcon
 
 class tileView(Gtk.Box):
@@ -17,14 +16,19 @@ class tileView(Gtk.Box):
 		self.page=1
 		
 		#main grid
-		self.colums=6
+		self.grid=Gtk.FlowBox()
+		self.grid.set_selection_mode(Gtk.SelectionMode.BROWSE)
+		self.grid.set_homogeneous(True)
 		
-		self.grid=Gtk.Grid()
-		self.grid.set_column_homogeneous(True)
-		#self.grid.set_row_homogeneous(True)
+		def cursorMove(box):
+			print("child changed")
+			for fbox in box.get_selected_children():
+				self.parent.openImage(fbox.get_child().post)
+		self.grid.connect("selected_children_changed", cursorMove)
 		
 		scroll=Gtk.ScrolledWindow()
 		scroll.add(self.grid)
+		scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
 		
 		#viewer controls
 		backbtn=Gtk.Button()
@@ -79,7 +83,6 @@ class tileView(Gtk.Box):
 		#pprint(results)
 		
 		print("running loadLoop")
-		(x, y)=(0, 0)
 		
 		for post in results:
 			id=int(post["id"])
@@ -94,11 +97,7 @@ class tileView(Gtk.Box):
 				self.cache[id]=BooruIcon(preview, post, click, post)
 			
 			#take image from the cache and put it in the grid
-			if x==self.colums:
-				x=0
-				y+=1
-			self.grid.attach(self.cache[id], x, y, 1, 1)
-			x+=1
+			self.grid.add(self.cache[id])
 		
 		self.results=results
 	

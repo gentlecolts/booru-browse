@@ -41,7 +41,7 @@ def keyfn(w, e):
 	elif keyname=="Left":
 		booruview.next(-1)
 booruview.floater.connect('key_press_event', keyfn)
-win.connect('key_press_event', keyfn)
+#win.connect('key_press_event', keyfn)
 
 def clickEvent(w, e):
 	#print(type(w))

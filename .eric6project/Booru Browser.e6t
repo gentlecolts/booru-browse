@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-09-06, 12:28:44 -->
+<!-- Saved: 2017-09-06, 16:45:35 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{d6acf365-310c-428c-8a80-813f0a61b6d8}">
@@ -139,40 +139,31 @@
       <Linenumber>134</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{8e72561a-8321-45a3-abf2-8bdb5f866555}">
+  <Task priority="1" completed="False" type="1" uid="{7249f991-02eb-4f9d-9455-fcb08e14f314}">
+    <Summary>TODO: should be able to go across pages</Summary>
+    <Description></Description>
+    <Created>2017-09-06, 16:44:25</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>87</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{1d1bef75-e24d-4a60-bce2-a22b061df9f7}">
+    <Summary>TODO: visual indication of the currently loaded post (should probably go in openImage)</Summary>
+    <Description></Description>
+    <Created>2017-09-06, 16:44:25</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>88</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{6f93a7c0-166f-48d6-bd5e-3c91a4eb67cd}">
     <Summary>TODO: ui button for this</Summary>
     <Description></Description>
-    <Created>2017-09-06, 12:22:52</Created>
+    <Created>2017-09-06, 16:45:32</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
       <Linenumber>19</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{ec1c97be-2136-4084-b4c7-fafd82b5b88d}">
-    <Summary>TODO: if blacklisted, add blacklist image instead</Summary>
-    <Description></Description>
-    <Created>2017-09-06, 12:22:52</Created>
-    <Resource>
-      <Filename>BooruIcon.py</Filename>
-      <Linenumber>52</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{5f8c5ded-7b46-4b91-b943-d65d27b0e8f1}">
-    <Summary>TODO: should be able to go across pages</Summary>
-    <Description></Description>
-    <Created>2017-09-06, 12:28:41</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>82</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{853fcbaa-6419-4c75-99b5-0b5982e03914}">
-    <Summary>TODO: visual indication of the currently loaded post (should probably go in openImage)</Summary>
-    <Description></Description>
-    <Created>2017-09-06, 12:28:41</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>83</Linenumber>
     </Resource>
   </Task>
 </Tasks>

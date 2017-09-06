@@ -52,14 +52,19 @@ class booruView(Gtk.Box):
 			#	print(e)
 			#	alert(self, str(e))
 	
+	def selectAndOpen(self, imagedic, reload=True):
+		#this triggers the event in FlowBox that will eventually call openImage
+		self.postPreview.grid.select_child(
+			self.postPreview.cache[int(imagedic['id'])].get_parent()
+		)
+	
 	def openImage(self, imagedic, reload=True):
 		#from pprint import pprint
 		#pprint(imagedic)
 		
 		self.currentPost=imagedic
-		BooruIcon.activePost=imagedic['id']
 		
-		if blacklist.is_blocked(imagedic['tags']):
+		if blacklist.is_blocked(imagedic['tags']) and not BooruIcon.showBlocked:
 			self.floater.set_title("Post View - [BLOCKED]")
 			return
 		
@@ -90,7 +95,7 @@ class booruView(Gtk.Box):
 		
 		#python allowing this syntax is rediculous, but since it does, may as well make use of
 		if 0<=pindex+jump<len(page):
-			self.openImage(page[pindex+jump])
+			self.selectAndOpen(page[pindex+jump])
 	
 	def closeImage(self):
 		self.post.set_no_show_all(True)

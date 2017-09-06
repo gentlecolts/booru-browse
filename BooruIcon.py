@@ -26,7 +26,7 @@ class BooruIcon(Gtk.EventBox):
 		super(BooruIcon, self).__init__()
 		
 		self.display=Gtk.Image()
-		#self.post=post
+		self.post=post
 		self.id=post['id']
 		self.blocked=blacklist.is_blocked(post['tags'])
 		self.pixbuf=None
@@ -43,16 +43,11 @@ class BooruIcon(Gtk.EventBox):
 			
 			self.pixbuf=loader.get_pixbuf()
 			#print("done loading")
-			
-			#GObject.idle_add(lambda:self.display.set_from_pixbuf(self.pixbuf))
 		
 		#queue image for loading into cache
 		cachepool.submit(loadurl)
 		
-		#TODO: if blacklisted, add blacklist image instead
 		self.add(self.display)
-		self.connect("button_press_event", onClick, *args)
-		
 		self.show_all()
 		
 		def hide_preview():
@@ -72,9 +67,7 @@ class BooruIcon(Gtk.EventBox):
 				show_preview()
 			elif self.state==LOADED and self.blocked and not showBlocked:
 				hide_preview()
-			#show border if active post
-			#if activePost==self.id:
-			#else
+			
 			return True
 		
 		GObject.idle_add(idleLoop)
