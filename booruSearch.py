@@ -5,6 +5,7 @@ from gi.repository import Gtk
 from tagContainer import tagBox
 from listBoorus import booruLister
 import blacklist
+import BooruIcon
 
 class searchWidget(Gtk.Box):
 	"""search bar"""
@@ -51,6 +52,12 @@ class searchWidget(Gtk.Box):
 		blocklister=Gtk.Button(label="Blocklist")
 		buttonRow.pack_start(blocklister, expand=False, fill=True, padding=0)
 		blocklister.connect("clicked", lambda b:blacklist.gui_edit())
+		
+		showBlacklist=Gtk.ToggleButton('Show Blacklisted')
+		def blacklistSwitch(widget):
+			BooruIcon.showBlocked=widget.get_active()
+		showBlacklist.connect('toggled', blacklistSwitch)
+		buttonRow.pack_start(showBlacklist, expand=False, fill=False, padding=0)
 		
 		login=Gtk.Button(label="Login")
 		buttonRow.pack_start(login, expand=False, fill=True, padding=0)

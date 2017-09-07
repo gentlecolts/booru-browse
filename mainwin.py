@@ -6,7 +6,7 @@ from booruSearch import searchWidget
 from tileView import tileView
 from postView import postView
 from errorReport import alert
-from BooruIcon import BooruIcon
+import BooruIcon
 import blacklist
 
 class booruView(Gtk.Box):
