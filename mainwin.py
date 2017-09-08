@@ -1,6 +1,6 @@
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk
+from gi.repository import Gtk
 
 from booruSearch import searchWidget
 from tileView import tileView
@@ -15,6 +15,8 @@ class booruView(Gtk.Box):
 		"""set everything up"""
 		super(booruView, self).__init__(orientation=Gtk.Orientation.VERTICAL)
 		
+		self.currentPost=None
+		
 		self.search=searchWidget(self)
 		self.pack_start(self.search, expand=False, fill=True, padding=0)
 		
@@ -26,6 +28,7 @@ class booruView(Gtk.Box):
 		self.post.set_no_show_all(True)
 		self.post.hide()
 		
+		#set up second window
 		self.floater=Gtk.Window()
 		self.floater.resize(1280, 720)
 		def closeFloat(w, e):
@@ -33,12 +36,13 @@ class booruView(Gtk.Box):
 			self.search.single.set_active(True)
 			return True
 		self.floater.connect('delete-event', closeFloat)
-		self.floater.set_title("Post View")
 		
+		self.floater.set_title("Post View")
+		self.floater.show_all()
+		
+		#final tasks
 		self.show_all()
 		self.setSingleWin(False)
-		
-		self.currentPost=None
 	
 	def updateSearch(self):
 		"""add new search terms and update the view"""
@@ -85,7 +89,6 @@ class booruView(Gtk.Box):
 	
 	def next(self, jump=1):
 		#TODO: should be able to go across pages
-		#TODO: visual indication of the currently loaded post (should probably go in openImage)
 		page=self.postPreview.results
 		try:
 			pindex=page.index(self.currentPost)

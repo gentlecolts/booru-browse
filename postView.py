@@ -123,7 +123,9 @@ class postView(Gtk.Box):
 		self.backbtn.set_always_show_image(True)
 		self.backbtn.connect("clicked", lambda btn:booruWidget.closeImage())
 		
-		#TODO: tie these buttons to arrow keys
+		savebtn=Gtk.Button("Save Image")
+		savebtn.connect('clicked', lambda b:self.content.saveDialog(self.get_toplevel()))
+		
 		prev=Gtk.Button(stock='gtk-media-previous')
 		prev.set_always_show_image(True)
 		
@@ -138,7 +140,6 @@ class postView(Gtk.Box):
 		#TODO: clean up this function
 		def makeToggle(name, target):
 			button=Gtk.ToggleButton(name)
-			frame=button
 			
 			def onswitch(switch):
 				if switch.get_active():
@@ -176,6 +177,7 @@ class postView(Gtk.Box):
 		#assemble the toolbar
 		self.toolbar=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 		self.toolbar.pack_start(self.backbtn, expand=True, fill=False, padding=0)
+		self.toolbar.pack_start(savebtn, expand=True, fill=False, padding=0)
 		self.toolbar.pack_start(navbuttons, expand=True, fill=False, padding=5)
 		self.toolbar.pack_start(togglebuttons, expand=True, fill=False, padding=0)
 		self.toolbar.show_all()

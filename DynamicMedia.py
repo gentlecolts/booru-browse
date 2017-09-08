@@ -8,6 +8,7 @@ import cgi,posixpath
 
 import urllib.request,urllib.parse
 import os
+from shutil import copyfile
 from threading import Thread
 
 try:
@@ -41,7 +42,7 @@ def getName(url,content):
 imgcache={}
 
 def loadWithProgress(url, progress):
-	#if cached 
+	#if cached, use cached image
 	if url in imgcache:
 		path=imgcache[url]
 		with open(path, 'rb') as f:
@@ -86,7 +87,7 @@ def loadWithProgress(url, progress):
 		f.write(buff)
 		imgcache[url]=path
 	
-	return path,buff
+	return path, name,buff
 
 class DynamicMedia(Gtk.EventBox):
 	def __init__(self, path=None, url=None):
@@ -99,6 +100,8 @@ class DynamicMedia(Gtk.EventBox):
 		self.path=None
 		self.fit=True
 		self.allowUpscale=True
+		self.draggable=False
+		self.lastPath=os.path.expanduser('~/Downloads')
 		
 		def toggle(w, e):
 			self.fit=not self.fit
@@ -128,23 +131,29 @@ class DynamicMedia(Gtk.EventBox):
 		self.load(path, url)
 	
 	def enableDrag(self):
+		if os.name=='nt':
+			print("Drag n Drop not supported on windows")
+			return
 		targets=[
 			#Gtk.TargetEntry.new('image/x-xpixmap',0,TARGET_ENTRY_PIXBUF),
 			Gtk.TargetEntry.new('text/uri-list',0,TARGET_ENTRY_PIXBUF),
 			#Gtk.TargetEntry.new('text/plain',0,TARGET_ENTRY_TEXT),
 		]
 		self.drag_source_set(Gdk.ModifierType.BUTTON1_MASK,targets,DRAG_ACTION)
+		self.draggable=True
 	
 	def disableDrag(self):
 		self.drag_source_unset()
+		self.draggable=False
 	
 	def generateDrag(self):
-		pbuf=self.buf.get_static_image()
-		(x,y)=(pbuf.get_width(),pbuf.get_height())
+		if self.draggable and self.buf:
+			pbuf=self.buf.get_static_image()
+			(x,y)=(pbuf.get_width(),pbuf.get_height())
 		
-		scale=128/max(x,y)
+			scale=128/max(x,y)
 		
-		self.drag_source_set_icon_pixbuf(pbuf.scale_simple(scale*x,scale*y,scale_method))
+			self.drag_source_set_icon_pixbuf(pbuf.scale_simple(scale*x,scale*y,scale_method))
 	
 	def load(self, path=None, url=None):
 		if path:
@@ -177,7 +186,7 @@ class DynamicMedia(Gtk.EventBox):
 				
 				loader=GdkPixbuf.PixbufLoader()
 				
-				self.path,buff=loadWithProgress(url, loadbar)
+				self.path,self.name,buff=loadWithProgress(url, loadbar)
 				loader.write(buff)
 				loader.close()
 				
@@ -227,7 +236,36 @@ class DynamicMedia(Gtk.EventBox):
 			#TODO: the best approach here might just be doing the animation stepping myself, for both static and not
 			#self.media.set_from_animation(pixbuf_anim_copy_resize(self.buf, x, y))
 		return True
-
+	
+	def saveDialog(self, rootwin=None):
+		if not self.path:
+			print("no image loaded, cant save")
+			return
+		
+		print("saving media!")
+		dialog=Gtk.FileChooserDialog(
+			"Save image", rootwin,
+			Gtk.FileChooserAction.SAVE, 
+			(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+			Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
+		)
+		
+		#TODO: remember path
+		#TODO: give default name
+		print("default name should be:", self.name)
+		dialog.set_current_folder(self.lastPath)
+		dialog.set_current_name(self.name)
+		dialog.set_do_overwrite_confirmation(True)
+		
+		response=dialog.run()
+		if response==Gtk.ResponseType.OK:
+			saveto=dialog.get_filename()
+			self.lastPath=os.path.dirname(saveto)
+			print("saving to:", saveto)
+			copyfile(self.path, saveto)
+		elif response==Gtk.ResponseType.CANCEL:
+			print("save canceled")
+		dialog.destroy()
 
 if __name__=="__main__":
 	win=Gtk.Window()
