@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject, GdkPixbuf
+from gi.repository import Gtk, GObject, GdkPixbuf, Gdk
 
-import urllib.request
+import tempfile
+import cgi,posixpath
+
+import urllib.request,urllib.parse
 import os
 from threading import Thread
 
@@ -15,12 +18,43 @@ except:
 
 scale_method=GdkPixbuf.InterpType.BILINEAR
 
+(TARGET_ENTRY_TEXT, TARGET_ENTRY_PIXBUF) = range(2)
+(COLUMN_TEXT, COLUMN_PIXBUF) = range(2)
+
+DRAG_ACTION = Gdk.DragAction.COPY
+
+tempdirobj=tempfile.TemporaryDirectory(prefix="booru-browse-")
+tempdir=tempdirobj.name+"/"
+print("using tempdir:",tempdir)
+print("testing:",tempdir+"succ.png")
+
+def getName(url,content):
+	domain=urllib.parse.urlsplit(url).netloc
+	
+	disposition=content.getheader('content-disposition')
+	if disposition:
+		_,params=cgi.parse_header(disposition)
+		return domain,params['filename']
+	else:
+		return domain,posixpath.basename(urllib.parse.urlsplit(url).path)
+
+imgcache={}
+
 def loadWithProgress(url, progress):
+	#if cached 
+	if url in imgcache:
+		path=imgcache[url]
+		with open(path, 'rb') as f:
+			return path,f.read()
+	
 	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-	source=urllib.request.urlopen(request)
+	content=urllib.request.urlopen(request)
 	buff=bytes()
 	
-	length=source.getheader('content-length')
+	length=content.getheader('content-length')
+	domain,name=getName(url,content)
+	
+	#print(domain,name)
 	if length:
 		length=int(length)
 		blocksize=max(4096, length//100)
@@ -36,32 +70,52 @@ def loadWithProgress(url, progress):
 	GObject.idle_add(progUpdate)
 	
 	while True:
-		read=source.read(blocksize)
+		read=content.read(blocksize)
 		if read:
 			buff+=read
 		else:
 			break
-	return buff
+	
+	#cache the image
+	path=tempdir+domain
+	if not os.path.exists(path):
+		os.mkdir(path)
+	path="{}/{}".format(path,name)
+	
+	with open(path,'wb+') as f:
+		f.write(buff)
+		imgcache[url]=path
+	
+	return path,buff
 
 class DynamicMedia(Gtk.EventBox):
 	def __init__(self, path=None, url=None):
 		super(DynamicMedia, self).__init__()
 		
+		#some properties
 		self.media=Gtk.Image()
-		
 		self.name=""
 		self.buf=None
+		self.path=None
 		self.fit=True
 		self.allowUpscale=True
 		
 		def toggle(w, e):
 			self.fit=not self.fit
 		
-		self.connect("button_press_event", toggle)
+		self.connect("button_release_event", toggle)
 		
-		#TODO: Drag n drop support
-		#self.connect('expose-event', self.on_image_resize)
+		#actually send the data
+		def data_get(widget,context,selection,info,evttime):
+			print("drag dropped")
+			
+			#print(type(selection))
+			#print(widget,context,selection,info,evttime)
+			
+			selection.set_uris(["file://"+self.path])
+		self.connect('drag_data_get',data_get)
 		
+		#assemble everything
 		overlay=Gtk.Overlay()
 		overlay.add(self.media)
 		
@@ -73,22 +127,58 @@ class DynamicMedia(Gtk.EventBox):
 		GObject.idle_add(self.resizeSelf)
 		self.load(path, url)
 	
+	def enableDrag(self):
+		targets=[
+			#Gtk.TargetEntry.new('image/x-xpixmap',0,TARGET_ENTRY_PIXBUF),
+			Gtk.TargetEntry.new('text/uri-list',0,TARGET_ENTRY_PIXBUF),
+			#Gtk.TargetEntry.new('text/plain',0,TARGET_ENTRY_TEXT),
+		]
+		self.drag_source_set(Gdk.ModifierType.BUTTON1_MASK,targets,DRAG_ACTION)
+	
+	def disableDrag(self):
+		self.drag_source_unset()
+	
+	def generateDrag(self):
+		pbuf=self.buf.get_static_image()
+		(x,y)=(pbuf.get_width(),pbuf.get_height())
+		
+		scale=128/max(x,y)
+		
+		self.drag_source_set_icon_pixbuf(pbuf.scale_simple(scale*x,scale*y,scale_method))
+	
 	def load(self, path=None, url=None):
 		if path:
 			self.name=os.path.basename(path)
-			self.buf=GdkPixbuf.PixbufAnimation.new_from_file(path)
-			self.iter=self.buf.get_iter()
-			self.media.set_from_animation(self.buf)
+			with open(path,'rb') as f:
+				#TODO: make copy in temp dir?
+				self.path=path
+				loader=GdkPixbuf.PixbufLoader()
+				loader.write(f.read())
+				loader.close()
+				
+				#self.buf=GdkPixbuf.PixbufAnimation.new_from_file(path)
+				self.buf=loader.get_animation()
+				self.iter=self.buf.get_iter()
+				self.media.set_from_animation(self.buf)
+				self.enableDrag()
+				
+				self.generateDrag()
+			
 		elif url:
 			#TODO:if url is cached, load it from cache and return before any of this
 			loadbar=Gtk.ProgressBar()
-			loadbar.set_text(url)
+			#if this is unset, then the displayed text will be the load percent
+			#that said,
+			#loadbar.set_text(url)
+			
 			loadbar.show()
 			self.progressbox.add(loadbar)
 			def asyncload():
+				
 				loader=GdkPixbuf.PixbufLoader()
 				
-				loader.write(loadWithProgress(url, loadbar))
+				self.path,buff=loadWithProgress(url, loadbar)
+				loader.write(buff)
 				loader.close()
 				
 				#self.name=source.info().get_filename()
@@ -100,6 +190,8 @@ class DynamicMedia(Gtk.EventBox):
 				def finish():
 					self.media.set_from_animation(self.buf)
 					self.progressbox.remove(loadbar)
+					self.enableDrag()
+					self.generateDrag()
 					return False
 				
 				GObject.idle_add(finish)
@@ -108,6 +200,7 @@ class DynamicMedia(Gtk.EventBox):
 			t.start()
 		else:
 			#TODO: in the future, should empty current content
+			self.disableDrag()
 			return
 
 	def resizeSelf(self):
@@ -135,6 +228,7 @@ class DynamicMedia(Gtk.EventBox):
 			#self.media.set_from_animation(pixbuf_anim_copy_resize(self.buf, x, y))
 		return True
 
+
 if __name__=="__main__":
 	win=Gtk.Window()
 	win.connect("delete-event", lambda wid, event:Gtk.main_quit())
@@ -142,9 +236,9 @@ if __name__=="__main__":
 	win.set_title("Title")
 	
 	#img=DynamicMedia('8db.jpg')
-	img=DynamicMedia('54a.gif')
+	#img=DynamicMedia('54a.gif')
 	#img=DynamicMedia('Red-Big-Frog-Wallpaper-Photos-202.jpg')
-	#img=DynamicMedia(url='http://i0.kym-cdn.com/photos/images/newsfeed/001/256/886/074.gif')
+	img=DynamicMedia(url='http://i0.kym-cdn.com/photos/images/newsfeed/001/256/886/074.gif')
 	sw=Gtk.ScrolledWindow()
 	sw.add(img)
 	win.add(sw)
