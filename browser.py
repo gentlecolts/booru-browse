@@ -50,6 +50,15 @@ def clickEvent(w, e):
 
 booruview.connect("button-press-event", clickEvent)
 
+def saveimg(group, win, someint, modifier):
+	booruview.post.content.saveDialog(win)
+
+accel=Gtk.AccelGroup()
+accel.connect(Gdk.keyval_from_name('S'), Gdk.ModifierType.CONTROL_MASK, 0, saveimg)
+
+booruview.floater.add_accel_group(accel)
+win.add_accel_group(accel)
+
 win.add(booruview)
 win.show()
 
