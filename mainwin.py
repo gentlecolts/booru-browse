@@ -4,10 +4,12 @@ from gi.repository import Gtk
 
 from booruSearch import searchWidget
 from tileView import tileView
+from tileView import sqlViewPost
 from postView import postView
 from errorReport import alert
 import BooruIcon
 import blacklist
+import urllib.parse
 
 class booruView(Gtk.Box):
 	"""Viewer for boorus"""
@@ -81,6 +83,17 @@ class booruView(Gtk.Box):
 		if reload:
 			self.post.load(imagedic)
 		
+		#mark as viewed
+		domain=urllib.parse.urlsplit(imagedic['preview_url']).netloc
+		imageid=int(imagedic['id'])
+		sqlViewPost(domain,imageid)
+		#pprint(self.postPreview.cache)
+		#print(id)
+		#print(id in self.postPreview.cache)
+		self.postPreview.cache[imageid].setViewed()
+		
+		#if single win, hide the current view and pull the post out
+		#TODO: gtk has a thing that does this, consider using
 		if self.single:
 			self.postPreview.set_no_show_all(True)
 			self.postPreview.hide()

@@ -2,7 +2,11 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
-from BooruIcon import BooruIcon
+import BooruIcon
+
+#need em here too
+isPostViewed=BooruIcon.isPostViewed
+sqlViewPost=BooruIcon.sqlViewPost
 
 class tileView(Gtk.Box):
 	"""settings and stuff"""
@@ -72,10 +76,6 @@ class tileView(Gtk.Box):
 		for tile in tiles:
 			self.grid.remove(tile)
 		
-		def click(w, e, post):
-			#print(post)
-			self.parent.openImage(post)
-		
 		#fetch new results
 		results=self.client.post_list(tags=self.query, page=self.page)
 		
@@ -94,7 +94,7 @@ class tileView(Gtk.Box):
 					preview=self.client.site_url+preview
 				
 				#add it in
-				self.cache[id]=BooruIcon(preview, post, click, post)
+				self.cache[id]=BooruIcon.BooruIcon(preview, post, post)
 			
 			#take image from the cache and put it in the grid
 			self.grid.add(self.cache[id])
