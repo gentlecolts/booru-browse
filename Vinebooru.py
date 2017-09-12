@@ -54,6 +54,7 @@ class Vinebooru():
 		post['sources']=[]
 		
 		for source in query('div.view'):
+			print('found source:',source)
 			link=source.find('a').attrib['href']
 			
 			target='sources' if post['source'] else 'source'
