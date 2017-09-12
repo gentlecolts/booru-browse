@@ -4,10 +4,6 @@ from gi.repository import Gtk
 
 import BooruIcon
 
-#need em here too
-isPostViewed=BooruIcon.isPostViewed
-sqlViewPost=BooruIcon.sqlViewPost
-
 class tileView(Gtk.Box):
 	"""settings and stuff"""
 	def __init__(self, booruWidget):

@@ -21,6 +21,7 @@ def sqlViewPost(domain, pid):
 	sql.execute("CREATE TABLE IF NOT EXISTS '{}' (id int,UNIQUE(id))".format(domain))
 	#insert the new value, dont complain about non-unique
 	sql.execute("INSERT OR IGNORE INTO '{}' VALUES (?)".format(domain), [pid])
+	conn.commit()
 
 #set up the thread pool for icon loading
 try:
@@ -56,6 +57,7 @@ class BooruIcon(Gtk.EventBox):
 		self.overlay=Gtk.Overlay()
 		self.cover=Gtk.Image()#TODO: set from pixbuf, consider generating at runtime
 		self.viewedicon=Gtk.Image()#TODO: set from pixbuf, consider generating at runtime
+		self.domain=urllib.parse.urlsplit(post['preview_url']).netloc
 		
 		def loadurl():
 			request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -69,9 +71,7 @@ class BooruIcon(Gtk.EventBox):
 			self.pixbuf=loader.get_pixbuf()
 			
 			def quickcheck():
-				domain=urllib.parse.urlsplit(post['preview_url']).netloc
-				imageid=int(post['id'])
-				if isPostViewed(domain, imageid):
+				if isPostViewed(self.domain, int(self.id)):
 					self.setViewed()
 				return False
 			GObject.idle_add(quickcheck)
@@ -118,3 +118,5 @@ class BooruIcon(Gtk.EventBox):
 		self.viewedicon.set_from_pixbuf(eyepbuf)
 		self.viewedicon.props.halign=2
 		self.viewedicon.props.valign=2
+		
+		sqlViewPost(self.domain,int(self.id))

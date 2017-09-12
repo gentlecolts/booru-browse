@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-09-11, 21:43:34 -->
+<!-- Saved: 2017-09-11, 22:20:48 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{f06a3fde-89a7-4f59-98e3-3af635aaebf3}">
@@ -148,49 +148,49 @@
       <Linenumber>254</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{e2d033e3-9e42-48cb-b39d-7ee811f0931a}">
+  <Task priority="1" completed="False" type="1" uid="{010a0b91-0988-41c4-8e7f-901679ef6658}">
     <Summary>TODO: ui button for this</Summary>
     <Description></Description>
-    <Created>2017-09-11, 21:36:54</Created>
+    <Created>2017-09-11, 22:19:16</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
-      <Linenumber>36</Linenumber>
+      <Linenumber>37</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{fc19dd34-cf4d-4e55-a35f-231409e122b9}">
+  <Task priority="1" completed="False" type="1" uid="{fd8bd3c2-364f-4d8c-b146-6535ee08f8e4}">
     <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
     <Description></Description>
-    <Created>2017-09-11, 21:36:54</Created>
-    <Resource>
-      <Filename>BooruIcon.py</Filename>
-      <Linenumber>57</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{d03e9853-bc0c-4b9d-acaf-288d6936d689}">
-    <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
-    <Description></Description>
-    <Created>2017-09-11, 21:36:54</Created>
+    <Created>2017-09-11, 22:19:16</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
       <Linenumber>58</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{cada8661-0fdf-4698-8447-42ed632d8eb1}">
+  <Task priority="1" completed="False" type="1" uid="{c71b6f86-45b0-4b92-8b0a-3bc74c1e92f1}">
+    <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
+    <Description></Description>
+    <Created>2017-09-11, 22:19:16</Created>
+    <Resource>
+      <Filename>BooruIcon.py</Filename>
+      <Linenumber>59</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{d7fcc2ce-06b1-40aa-be0c-3b0ade7ca2f7}">
     <Summary>TODO: gtk has a thing that does this, consider using</Summary>
     <Description></Description>
-    <Created>2017-09-11, 21:43:31</Created>
+    <Created>2017-09-11, 22:20:39</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>88</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{3c6a523b-5626-4b1a-b03d-33577cda1dde}">
+    <Summary>TODO: should be able to go across pages</Summary>
+    <Description></Description>
+    <Created>2017-09-11, 22:20:39</Created>
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>96</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{e203e9e8-7731-4dda-9039-4d2f9a940bf9}">
-    <Summary>TODO: should be able to go across pages</Summary>
-    <Description></Description>
-    <Created>2017-09-11, 21:43:31</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>104</Linenumber>
     </Resource>
   </Task>
 </Tasks>
