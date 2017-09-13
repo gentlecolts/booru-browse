@@ -27,7 +27,6 @@ DRAG_ACTION = Gdk.DragAction.COPY
 tempdirobj=tempfile.TemporaryDirectory(prefix="booru-browse-")
 tempdir=tempdirobj.name+"/"
 print("using tempdir:",tempdir)
-print("testing:",tempdir+"succ.png")
 
 def getName(url,content):
 	domain=urllib.parse.urlsplit(url).netloc

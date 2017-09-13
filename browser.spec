@@ -16,6 +16,8 @@ for f in glob.glob("*.py"):
 	if not f in module_blacklist:
 		print("adding module:",f)
 		modules.append((f,'.'))
+modules.append(('blocked.png','.'))
+modules.append(('eye.png','.'))
 
 binaries=[(os.path.join(typelib_path, tl), 'gi_typelibs') for tl in os.listdir(typelib_path)]
 

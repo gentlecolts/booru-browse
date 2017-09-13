@@ -1,63 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-09-13, 12:04:19 -->
+<!-- Saved: 2017-09-13, 12:54:48 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{27a1a2f6-69fb-4116-8365-71c1a0def551}">
-    <Summary>TODO: make copy in temp dir?</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>162</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{bc72533e-9d53-4399-92a4-9b359b93620f}">
-    <Summary>TODO:if url is cached, load it from cache and return before any of this</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>177</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{0fe7f7c3-7a41-4ad8-9207-c874f69db22c}">
-    <Summary>TODO: in the future, should empty current content</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>211</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{825af4fc-fb4a-42cd-9c4e-762270833609}">
-    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>236</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{5809a7b7-7c3e-408c-8e41-92edbec4fe68}">
-    <Summary>TODO: remember path</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>253</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{57c69f19-ebad-4f76-8936-310768434ac6}">
-    <Summary>TODO: give default name</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>254</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="1" uid="{34c5f426-6297-48e2-9254-364158b10c6c}">
     <Summary>TODO: gather comments</Summary>
     <Description></Description>
@@ -166,31 +112,85 @@
       <Linenumber>60</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{008c4c9b-021a-41b6-92d5-9bc801360782}">
+  <Task priority="1" completed="False" type="1" uid="{3344052c-cdf6-463b-ad70-0aa8cb730f61}">
     <Summary>TODO: ui button for this</Summary>
     <Description></Description>
-    <Created>2017-09-13, 12:04:16</Created>
+    <Created>2017-09-13, 12:53:42</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
-      <Linenumber>40</Linenumber>
+      <Linenumber>44</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{c1deff02-9eac-4e63-89b5-eb5f808599d0}">
+  <Task priority="1" completed="False" type="1" uid="{ee7c0ca3-df31-4b8b-a288-23876e2880e9}">
     <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
     <Description></Description>
-    <Created>2017-09-13, 12:04:16</Created>
+    <Created>2017-09-13, 12:53:42</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
-      <Linenumber>61</Linenumber>
+      <Linenumber>65</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{7badb3a8-7787-4685-9fd0-3f2d38d4c362}">
+  <Task priority="1" completed="False" type="1" uid="{65c7a2b3-b5ac-4044-baf1-3d23898dd834}">
     <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
     <Description></Description>
-    <Created>2017-09-13, 12:04:16</Created>
+    <Created>2017-09-13, 12:53:42</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
-      <Linenumber>62</Linenumber>
+      <Linenumber>66</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{875e0a92-7c32-4f07-9fd2-2f562f261900}">
+    <Summary>TODO: make copy in temp dir?</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 12:54:45</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>161</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{c130eaa6-354b-45ff-88dd-c738d2adcaa7}">
+    <Summary>TODO:if url is cached, load it from cache and return before any of this</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 12:54:45</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>176</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{9c10a06e-2b72-4d28-a65f-0b45915f8732}">
+    <Summary>TODO: in the future, should empty current content</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 12:54:45</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>210</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{e4c42b48-63a3-43d5-8d98-38e3b6637a29}">
+    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 12:54:45</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>235</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{14ed360e-3014-4c25-bc74-d2af6ff06c98}">
+    <Summary>TODO: remember path</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 12:54:45</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>252</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{b90408a6-6ae3-4d0d-8797-ab6655a85dec}">
+    <Summary>TODO: give default name</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 12:54:45</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>253</Linenumber>
     </Resource>
   </Task>
 </Tasks>

@@ -5,11 +5,15 @@ from gi.repository import Gtk, GObject, GdkPixbuf
 import urllib.request, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import sqlite3
+import os, sys
 
 import blacklist
 
+#my directory
+mydir=os.path.dirname(sys.argv[0])
+
 #sqlite stuff
-conn=sqlite3.connect('viewedposts.db')
+conn=sqlite3.connect(os.path.join(mydir,'viewedposts.db'))
 sql=conn.cursor()
 
 def isPostViewed(domain, pid):
@@ -34,8 +38,8 @@ except:
 	#but if this needs a parameter, just give it one
 	cachepool=ThreadPoolExecutor(max_workers=8)
 
-#blocked 
-blockPbuf=GdkPixbuf.Pixbuf.new_from_file("blocked.png")
+#blocked
+blockPbuf=GdkPixbuf.Pixbuf.new_from_file(os.path.join(mydir, "blocked.png"))
 
 #TODO: ui button for this
 showBlocked=False
@@ -45,7 +49,7 @@ showBlocked=False
 coverColor=0xffffff7f#rgba
 coverfill=GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB, True, 8, 1, 1)
 coverfill.fill(coverColor)
-eyepbuf=GdkPixbuf.Pixbuf.new_from_file("eye.png")
+eyepbuf=GdkPixbuf.Pixbuf.new_from_file(os.path.join(mydir, "eye.png"))
 
 class BooruIcon(Gtk.EventBox):
 	def __init__(self, url, post, *args):
