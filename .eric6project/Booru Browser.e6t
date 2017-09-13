@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-09-13, 15:25:05 -->
+<!-- Saved: 2017-09-13, 16:40:48 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1" uid="{bd644be4-597a-43f7-a41b-ca4809b6dc40}">
@@ -38,24 +38,6 @@
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>66</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{a0aeee8b-1548-4b59-ba95-dd672e037289}">
-    <Summary>TODO: gtk has a thing that does this, consider using</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>88</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{0f90e40e-c68d-4b13-b961-e26f28bfe949}">
-    <Summary>TODO: should be able to go across pages</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>mainwin.py</Filename>
-      <Linenumber>96</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" type="1" uid="{90025505-8fde-4d2d-8749-dec3119aba54}">
@@ -148,58 +130,67 @@
       <Linenumber>253</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{81043fb2-e9d0-4ec4-bc6c-897455ab359e}">
+  <Task priority="1" completed="False" type="1" uid="{ecde57f5-1b82-4570-802c-050aa9a8ef2a}">
+    <Summary>TODO: child.destroy()</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 16:39:21</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>33</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{5f49f0aa-4768-4ed2-908d-a60e5ce761b1}">
     <Summary>TODO: clean up this function</Summary>
     <Description></Description>
-    <Created>2017-09-13, 13:41:42</Created>
+    <Created>2017-09-13, 16:39:21</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>140</Linenumber>
+      <Linenumber>148</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{654c7392-7761-4673-9355-057bda02280b}">
+  <Task priority="1" completed="False" type="1" uid="{0be81fae-fc84-485c-b38e-967619e2e03b}">
     <Summary>TODO:toggle button for upscaling</Summary>
     <Description></Description>
-    <Created>2017-09-13, 13:41:42</Created>
+    <Created>2017-09-13, 16:39:21</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>162</Linenumber>
+      <Linenumber>170</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{e74811f3-164f-4959-b836-4caa198c9f15}">
+  <Task priority="1" completed="False" type="1" uid="{7c085278-d267-4e33-9634-9cc552b96456}">
     <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
     <Description></Description>
-    <Created>2017-09-13, 13:41:42</Created>
+    <Created>2017-09-13, 16:39:21</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>192</Linenumber>
+      <Linenumber>200</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{a6a26a6a-c7d4-407c-a2c3-3396e5f64e4b}">
-    <Summary>TODO: need to fetch comments</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 13:41:42</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>214</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{3050c1dd-c21c-4b24-9e36-c12c8a4ec1a1}">
+  <Task priority="1" completed="False" type="1" uid="{e3d7ddde-f032-45db-9832-ae69b07e0ecc}">
     <Summary>TODO: this seems to work &quot;well enough&quot; but really isnt a good approach</Summary>
     <Description></Description>
-    <Created>2017-09-13, 15:25:02</Created>
+    <Created>2017-09-13, 16:40:09</Created>
     <Resource>
       <Filename>Vinebooru.py</Filename>
       <Linenumber>65</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{841329be-6c9b-40d0-a490-d88ba87be622}">
-    <Summary>TODO: gather comments</Summary>
+  <Task priority="1" completed="False" type="1" uid="{c447a891-fbd7-4343-b99f-0004ca7a6416}">
+    <Summary>TODO: gtk has a thing that does this, consider using</Summary>
     <Description></Description>
-    <Created>2017-09-13, 15:25:02</Created>
+    <Created>2017-09-13, 16:40:39</Created>
     <Resource>
-      <Filename>Vinebooru.py</Filename>
-      <Linenumber>77</Linenumber>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>88</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{1ca370c1-f819-4169-9aa0-df5d68e3b0ca}">
+    <Summary>TODO: should be able to go across pages</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 16:40:39</Created>
+    <Resource>
+      <Filename>mainwin.py</Filename>
+      <Linenumber>96</Linenumber>
     </Resource>
   </Task>
 </Tasks>

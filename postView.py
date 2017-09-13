@@ -30,6 +30,7 @@ class tagDisplay(Gtk.ScrolledWindow):
 		children=self.box.get_children()
 		for child in children:
 			self.box.remove(child)
+			#TODO: child.destroy()
 		
 		y=0
 		def addgrid(widget):
@@ -79,9 +80,16 @@ class sourceDisplay(Gtk.Box):
 class commentDisplay(Gtk.ScrolledWindow):
 	def __init__(self):
 		super(commentDisplay, self).__init__()
+		self.comments=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+		self.add(self.comments)
 	
 	def setContent(self, content):
-		"""add stuff to the widget"""
+		children=self.comments.get_children()
+		for child in children:
+			self.comments.remove(child)
+		
+		for comment in content:
+			"add comment"
 
 class postView(Gtk.Box):
 	"""settings and stuff"""
@@ -211,8 +219,8 @@ class postView(Gtk.Box):
 		if(self.sourceSwitch.get_active()):
 			self.sources.show_all()
 		
-		#TODO: need to fetch comments
-		#self.comments.setContent()
+		if 'comments' in post:
+			self.comments.setContent(post['comments'])
 	
 	def removeMedia(self):
 		self.remove(self.media)

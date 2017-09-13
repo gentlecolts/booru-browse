@@ -66,12 +66,28 @@ class Vinebooru():
 		sources=[]
 		for source in query('div.blockbody tr'):
 			if 'Source' in getChildrenText(source, 'th'):
-				sources.append(source.find('td').find('div').find('a').attrib['href'])
+				try:
+					sources.append(source.find('td').find('div').find('a').attrib['href'])
+				except:
+					pass
 		
 		if sources:
 			post['source']=sources[0]
 			post['sources']=sources[1:]
 		pprint(sources)
-		#pprint(post)
 		
-		#TODO: gather comments
+		comments=[]
+		for comment in query('table.comment'):
+			meta=comment.find_class('meta')[0]
+			
+			try:
+				comments.append({
+					'username':meta.find_class('username')[0].text, 
+					'time':meta.find('time').attrib['datetime'],
+					'text':comment.find('tr').findall('td')[1].text
+				})
+			except:
+				pass
+		
+		post['comments']=comments
+		#pprint(post)
