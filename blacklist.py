@@ -3,13 +3,40 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+defText="""#globally blacklisted tags go here
+#blank lines and lines beginning with # are ignored
+#separate each blocked query with a newline
+#place multiple tags on one line to block both
+#negation is supported
+
+#for example, to block any posts containing tag1 or tag2:
+#tag1
+#tag2
+
+#to block posts containing BOTH tag1 AND tag2:
+#tag1 tag2
+
+#to block posts that dont contain tag1:
+#-tag1
+
+#to block posts that contain tag1, unless tag2 is also present
+#tag1 -tag2
+
+#as many tags as needed can be placed on a line
+"""
+
 blacklist=[]
 default_file="blacklist.txt"
 
 def load():
 	global blacklist
-	with open(default_file) as f:
-		blacklist=[line.lower().split() for line in f if line.strip() and not line.strip().startswith("#")]
+	try:
+		with open(default_file) as f:
+			blacklist=[line.lower().split() for line in f if line.strip() and not line.strip().startswith("#")]
+	except FileNotFoundError:
+		print(default_file,"not found, creating")
+		with open(default_file, 'w') as f:
+			f.write(defText)
 	
 try:
 	load()

@@ -34,19 +34,22 @@ a = Analysis(['browser.py', 'browser.spec'],
 
 pyz = PYZ(
 	a.pure,
-	a.zipped_data,
+	#a.zipped_data,
 	cipher=block_cipher
 )
 
-exe = EXE(
-	pyz,
-	a.scripts,
-	a.binaries,
-	a.zipfiles,
-	a.datas,
-	name='Booru-Browser',
-	debug=False,
-	strip=False,
-	upx=True,
-	console=True
-)
+exe = EXE(pyz,
+          a.scripts,
+          exclude_binaries=True,
+          name='Booru-Browser',
+          debug=False,
+          strip=False,
+          upx=True,
+          console=True )
+coll = COLLECT(exe,
+               a.binaries,
+               a.zipfiles,
+               a.datas,
+               strip=False,
+               upx=True,
+               name='Booru-Browser')

@@ -5,6 +5,28 @@ from gi.repository import Gtk
 import pybooru
 from Vinebooru import Vinebooru
 
+defText="""#any non-stock boorus go here, i make no guarentee if they'll work or not
+#broken site reports would be appreciated, but are more likely an issue with pybooru than with this program
+
+#line format: site	api_version
+#api version is optional
+#empty lines and lines beginning with # are ignored
+#as of right now, custom sites can only be moebooru-based sites, support for plain danbooru ones should be coming sometime eventually
+
+#some examples:
+
+#sites can be full urls, or just the domain
+#note that because some sites dont support https, http will be used by default if https is not provided
+#site.com
+#http://site.com
+#https://site.com
+
+#valid versions are shown here, shouldnt be needed unless a site doesnt work right
+#site.com	1.13.0
+#site.com	1.13.0+update.1
+#site.com	1.13.0+update.2
+"""
+
 class booruLister(Gtk.ComboBoxText):
 	def __init__(self, booruWidget):
 		super(booruLister, self).__init__()
@@ -20,7 +42,8 @@ class booruLister(Gtk.ComboBoxText):
 					if line and not line.startswith("#"):
 						self.sites.append(line.split())
 		except FileNotFoundError:
-			print("Couldnt find boorus.txt, skipping")
+			with open('boorus.txt', 'w') as f:
+				f.write(defText)
 		
 		for booru in self.sites:
 			if type(booru) is str:

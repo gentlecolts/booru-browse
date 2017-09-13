@@ -13,8 +13,11 @@ conn=sqlite3.connect('viewedposts.db')
 sql=conn.cursor()
 
 def isPostViewed(domain, pid):
-	sql.execute("SELECT id FROM '{}' where id=?".format(domain), [pid])
-	return sql.fetchone()
+	sql.execute('SELECT * FROM sqlite_master WHERE name=?',[domain])
+	if sql.fetchone():
+		sql.execute("SELECT id FROM '{}' where id=?".format(domain), [pid])
+		return sql.fetchone()
+	return False
 
 def sqlViewPost(domain, pid):
 	#make a table for this domain if it doesnt exist, say id is unique
