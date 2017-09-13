@@ -6,6 +6,14 @@ import re
 baseurl='https://booru.vineshroom.net'
 thumbsrc=re.compile(r'src="(\/_thumbs\/[0-9a-f]+\/thumb\.[a-z]+)"')
 
+def getChildrenText(tag, childtag):
+	"""returns the text of all children of tag which are <childtag>"""
+	tags=[]
+	for child in tag:
+		if child.tag==childtag:
+			tags.append(child.text)
+	return tags
+
 class Vinebooru():
 	"""class for specifcally vinebooru"""
 	def __init__(self):
@@ -53,11 +61,17 @@ class Vinebooru():
 		post['source']=''
 		post['sources']=[]
 		
-		for source in query('div.view'):
-			print('found source:',source)
-			link=source.find('a').attrib['href']
-			
-			target='sources' if post['source'] else 'source'
-			post[target]+=link
+		#print("gathering sources")
+		#TODO: this seems to work "well enough" but really isnt a good approach
+		sources=[]
+		for source in query('div.blockbody tr'):
+			if 'Source' in getChildrenText(source, 'th'):
+				sources.append(source.find('td').find('div').find('a').attrib['href'])
+		
+		if sources:
+			post['source']=sources[0]
+			post['sources']=sources[1:]
+		pprint(sources)
+		#pprint(post)
 		
 		#TODO: gather comments

@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-09-13, 12:54:48 -->
+<!-- Saved: 2017-09-13, 15:25:05 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{34c5f426-6297-48e2-9254-364158b10c6c}">
-    <Summary>TODO: gather comments</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>Vinebooru.py</Filename>
-      <Linenumber>63</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="1" uid="{bd644be4-597a-43f7-a41b-ca4809b6dc40}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
@@ -65,42 +56,6 @@
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>96</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{8ecef0bd-6afd-4db2-bd18-44a0caca2098}">
-    <Summary>TODO: clean up this function</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>140</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{5c3cb323-6c1d-4447-8a4f-47a97a9c585d}">
-    <Summary>TODO:toggle button for upscaling</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>162</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{ad608455-7e2d-47ab-948a-41f540c82d28}">
-    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>192</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{90485bb0-cf03-48e0-b9da-bd4fdccd4ac2}">
-    <Summary>TODO: need to fetch comments</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 11:42:55</Created>
-    <Resource>
-      <Filename>postView.py</Filename>
-      <Linenumber>214</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" type="1" uid="{90025505-8fde-4d2d-8749-dec3119aba54}">
@@ -191,6 +146,60 @@
     <Resource>
       <Filename>DynamicMedia.py</Filename>
       <Linenumber>253</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{81043fb2-e9d0-4ec4-bc6c-897455ab359e}">
+    <Summary>TODO: clean up this function</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 13:41:42</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>140</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{654c7392-7761-4673-9355-057bda02280b}">
+    <Summary>TODO:toggle button for upscaling</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 13:41:42</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>162</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{e74811f3-164f-4959-b836-4caa198c9f15}">
+    <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 13:41:42</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>192</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a6a26a6a-c7d4-407c-a2c3-3396e5f64e4b}">
+    <Summary>TODO: need to fetch comments</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 13:41:42</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>214</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{3050c1dd-c21c-4b24-9e36-c12c8a4ec1a1}">
+    <Summary>TODO: this seems to work &quot;well enough&quot; but really isnt a good approach</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 15:25:02</Created>
+    <Resource>
+      <Filename>Vinebooru.py</Filename>
+      <Linenumber>65</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{841329be-6c9b-40d0-a490-d88ba87be622}">
+    <Summary>TODO: gather comments</Summary>
+    <Description></Description>
+    <Created>2017-09-13, 15:25:02</Created>
+    <Resource>
+      <Filename>Vinebooru.py</Filename>
+      <Linenumber>77</Linenumber>
     </Resource>
   </Task>
 </Tasks>
