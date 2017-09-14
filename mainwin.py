@@ -85,7 +85,7 @@ class booruView(Gtk.Box):
 		self.postPreview.cache[int(imagedic['id'])].setViewed()
 		
 		#if single win, hide the current view and pull the post out
-		#TODO: gtk has a thing that does this, consider using
+		#TODO: see Gtk.Stack
 		if self.single:
 			self.postPreview.set_no_show_all(True)
 			self.postPreview.hide()

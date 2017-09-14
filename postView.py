@@ -2,6 +2,8 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+import dateutil.parser
+
 from tagContainer import tagBox
 from Vinebooru import Vinebooru
 from DynamicMedia import DynamicMedia
@@ -59,7 +61,7 @@ class tagDisplay(Gtk.ScrolledWindow):
 				
 				width=max(width, button.get_allocation().width)
 		
-		self.set_size_request(panelWid, self.parent.get_size_request().height)
+		self.set_size_request(panelWid, -1)
 
 class sourceDisplay(Gtk.Box):
 	def __init__(self):
@@ -90,17 +92,24 @@ class commentDisplay(Gtk.ScrolledWindow):
 			self.comments.remove(child)
 		
 		for comment in content:
-			print("adding comment", comment)
+			#print("adding comment", comment)
 			c=Gtk.Frame(label=comment['username'])
 			box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-			#TODO: pretty format the time
-			box.add(Gtk.Label(comment['time']))
 			
+			#add timestamp
+			box.add(Gtk.Label(
+				dateutil.parser.parse(comment['time']).strftime("%B %d, %Y at %X")
+				#dateutil.parser.parse(comment['time']).strftime("%x at %X")
+			))
+			
+			#add comment text
 			combox=Gtk.TextView()
 			combox.get_buffer().set_text(comment['text'])
 			combox.set_editable(False)
 			combox.set_cursor_visible(False)
 			combox.set_wrap_mode(Gtk.WrapMode.WORD)
+			
+			#put it all together
 			box.add(combox)
 			c.add(box)
 			self.comments.add(c)
@@ -161,7 +170,6 @@ class postView(Gtk.Box):
 		prev.connect("clicked", lambda b:booruWidget.next(1))
 		next.connect("clicked", lambda b:booruWidget.next(-1))
 		
-		#TODO: clean up this function
 		def makeToggle(name, target):
 			button=Gtk.ToggleButton(name)
 			
@@ -183,7 +191,6 @@ class postView(Gtk.Box):
 		navbuttons.pack_start(prev, expand=False, fill=True, padding=5)
 		navbuttons.pack_start(next, expand=False, fill=True, padding=5)
 		
-		#TODO:toggle button for upscaling
 		togglebuttons=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 		togglebuttons.pack_start(Gtk.Label("Viewer Switches: "), expand=False, fill=True, padding=0)
 		togglebuttons.pack_start(self.tagSwitch, expand=False, fill=True, padding=5)

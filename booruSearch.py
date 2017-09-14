@@ -47,7 +47,6 @@ class searchWidget(Gtk.Box):
 		#settings related buttons
 		self.boorus=booruLister(booruWidget)
 		buttonRow.pack_start(self.boorus, expand=False, fill=True, padding=0)
-		#TODO: attach event listeners
 		
 		blocklister=Gtk.Button(label="Blocklist")
 		buttonRow.pack_start(blocklister, expand=False, fill=True, padding=0)

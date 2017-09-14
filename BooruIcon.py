@@ -41,7 +41,6 @@ except:
 #blocked
 blockPbuf=GdkPixbuf.Pixbuf.new_from_file(os.path.join(mydir, "blocked.png"))
 
-#TODO: ui button for this
 showBlocked=False
 
 (EMPTY, LOADED, HIDDEN)=range(3)
@@ -62,8 +61,8 @@ class BooruIcon(Gtk.EventBox):
 		self.pixbuf=None
 		self.state=EMPTY
 		self.overlay=Gtk.Overlay()
-		self.cover=Gtk.Image()#TODO: set from pixbuf, consider generating at runtime
-		self.viewedicon=Gtk.Image()#TODO: set from pixbuf, consider generating at runtime
+		self.cover=Gtk.Image()
+		self.viewedicon=Gtk.Image()
 		self.domain=urllib.parse.urlsplit(post['preview_url']).netloc
 		
 		def loadurl():
