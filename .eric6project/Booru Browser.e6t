@@ -1,178 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project Booru Browser -->
-<!-- Saved: 2017-09-13, 21:29:50 -->
+<!-- Saved: 2017-09-14, 09:54:05 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{91fb0039-4a3c-43db-b8d5-c248359d1ed8}">
+  <Task priority="1" completed="False" type="1" uid="{96718e04-4bfc-46e1-9a80-c068bfdfb068}">
     <Summary>TODO: ui button for this</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
       <Linenumber>44</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{25663b41-0cb5-4e12-8b6f-010e46d8229d}">
+  <Task priority="1" completed="False" type="1" uid="{945aeb06-8e86-4719-9493-cb67bac3acb9}">
     <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
       <Linenumber>65</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{55b1bb76-74b7-428d-bebb-e28415501276}">
+  <Task priority="1" completed="False" type="1" uid="{d5987004-a99b-415a-87b2-ae56320e8d95}">
     <Summary>TODO: set from pixbuf, consider generating at runtime</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>BooruIcon.py</Filename>
       <Linenumber>66</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{fe49ef5d-a325-4e4f-95de-f9ef31e5ae3b}">
-    <Summary>TODO: this seems to work &quot;well enough&quot; but really isnt a good approach</Summary>
+  <Task priority="1" completed="False" type="1" uid="{3b16e59b-4809-425e-a254-c9dd8f5a8b23}">
+    <Summary>TODO: make copy in temp dir?</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
-      <Filename>Vinebooru.py</Filename>
-      <Linenumber>65</Linenumber>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>156</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{1f683349-a321-4435-8cc2-b3341a4abb94}">
+  <Task priority="1" completed="False" type="1" uid="{9314422e-5052-4e57-b553-84c5c11de5ca}">
+    <Summary>TODO: in the future, should empty current content</Summary>
+    <Description></Description>
+    <Created>2017-09-14, 09:10:37</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>216</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a411aaf0-343c-4b0a-84a9-02395dd7719d}">
+    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
+    <Description></Description>
+    <Created>2017-09-14, 09:10:37</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>241</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{d615b951-58b7-4737-bb7c-5ba416770fec}">
+    <Summary>TODO: wait (in bg thread) to ensure disk file is fully written before opening save dialog</Summary>
+    <Description></Description>
+    <Created>2017-09-14, 09:10:37</Created>
+    <Resource>
+      <Filename>DynamicMedia.py</Filename>
+      <Linenumber>246</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{f6c2b133-a95a-4e98-8551-3a30e0a885c5}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>50</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{97d85aa0-aae3-47ac-b279-f2227f20e9ef}">
+  <Task priority="1" completed="False" type="1" uid="{c367592c-b11d-4e2a-84e3-3df192d47c89}">
     <Summary>TODO: attach event listeners</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>64</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{aa15cfe4-f667-4450-8290-128606dee314}">
+  <Task priority="1" completed="False" type="1" uid="{a2684eec-8a5d-4295-9c3a-293700ca5b93}">
     <Summary>TODO: what login info can be stored securely (username? tokens?)?</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>65</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{ed0ddf1c-b119-45c1-aec1-ea51c26a141c}">
+  <Task priority="1" completed="False" type="1" uid="{b98c0060-f524-4e53-bb11-e58a98001e15}">
     <Summary>TODO: remove this when button works</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>booruSearch.py</Filename>
       <Linenumber>66</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{68f182c7-6888-4347-9779-3b34dff91180}">
+  <Task priority="1" completed="False" type="1" uid="{f68b1711-e336-4e7e-8050-79b6681d242d}">
     <Summary>TODO: username/password/tokens/etc</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>listBoorus.py</Filename>
       <Linenumber>60</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{e701fac2-6d06-4433-b51f-d200ed90bc5d}">
+  <Task priority="1" completed="False" type="1" uid="{b0d96042-4b46-4071-b39a-b88d21cf44a7}">
     <Summary>TODO: gtk has a thing that does this, consider using</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>88</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{4a90a8c8-205d-4fd7-90c0-d03bd5094658}">
+  <Task priority="1" completed="False" type="1" uid="{6ef0005f-4b41-492e-b743-f8ad5460539b}">
     <Summary>TODO: should be able to go across pages</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:10:37</Created>
     <Resource>
       <Filename>mainwin.py</Filename>
       <Linenumber>96</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{c5b4475f-388d-485e-a9b8-f04bd4023154}">
+  <Task priority="1" completed="False" type="1" uid="{e9c858a9-1c21-4395-b35f-e1c5817736bc}">
+    <Summary>TODO: this seems to work &quot;well enough&quot; but really isnt a good approach</Summary>
+    <Description></Description>
+    <Created>2017-09-14, 09:15:51</Created>
+    <Resource>
+      <Filename>Vinebooru.py</Filename>
+      <Linenumber>65</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{a4f06a9c-d563-4865-aa3d-03ee476360d8}">
     <Summary>TODO: child.destroy()</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:54:02</Created>
     <Resource>
       <Filename>postView.py</Filename>
       <Linenumber>33</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{6e808e57-3d5b-4f80-a8e8-272b5af9bacf}">
+  <Task priority="1" completed="False" type="1" uid="{6cd55a1f-92e5-4f8e-a578-caa33b2bbe69}">
+    <Summary>TODO: pretty format the time</Summary>
+    <Description></Description>
+    <Created>2017-09-14, 09:54:02</Created>
+    <Resource>
+      <Filename>postView.py</Filename>
+      <Linenumber>96</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1" uid="{8b8bff60-40a6-400a-9c73-8b69355cd41b}">
     <Summary>TODO: clean up this function</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:54:02</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>148</Linenumber>
+      <Linenumber>164</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{d1b91998-dccb-427c-83c1-e6e229a0814f}">
+  <Task priority="1" completed="False" type="1" uid="{eb91e067-41d1-4bda-ae30-1f86fd2d4ebd}">
     <Summary>TODO:toggle button for upscaling</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:54:02</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>170</Linenumber>
+      <Linenumber>186</Linenumber>
     </Resource>
   </Task>
-  <Task priority="1" completed="False" type="1" uid="{2d99aaad-9969-46c5-a1f6-b6a7eb559972}">
+  <Task priority="1" completed="False" type="1" uid="{1effd593-c53a-4b0f-bc60-f58ee75ee858}">
     <Summary>TODO: for future special cases, maybe this should depend on a key in the dict instead of class type</Summary>
     <Description></Description>
-    <Created>2017-09-13, 21:01:20</Created>
+    <Created>2017-09-14, 09:54:02</Created>
     <Resource>
       <Filename>postView.py</Filename>
-      <Linenumber>200</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{75443ee6-2013-4ce7-8b07-ba08955a37d3}">
-    <Summary>TODO: make copy in temp dir?</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 21:29:47</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>159</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{366ec96d-99a3-41a8-913c-d71f83c5fdd2}">
-    <Summary>TODO: in the future, should empty current content</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 21:29:47</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>219</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{aceb4521-f304-4229-afc2-d676f8ca67b7}">
-    <Summary>TODO: the best approach here might just be doing the animation stepping myself, for both static and not</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 21:29:47</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>244</Linenumber>
-    </Resource>
-  </Task>
-  <Task priority="1" completed="False" type="1" uid="{9f018e48-b4f9-4102-b191-f39ab712cb45}">
-    <Summary>TODO: wait (in bg thread) to ensure disk file is fully written before opening save dialog</Summary>
-    <Description></Description>
-    <Created>2017-09-13, 21:29:47</Created>
-    <Resource>
-      <Filename>DynamicMedia.py</Filename>
-      <Linenumber>249</Linenumber>
+      <Linenumber>216</Linenumber>
     </Resource>
   </Task>
 </Tasks>

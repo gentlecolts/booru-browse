@@ -77,6 +77,7 @@ class sourceDisplay(Gtk.Box):
 			button=Gtk.LinkButton.new_with_label(source, source)
 			self.pack_start(button, expand=False, fill=True, padding=0)
 
+
 class commentDisplay(Gtk.ScrolledWindow):
 	def __init__(self):
 		super(commentDisplay, self).__init__()
@@ -89,7 +90,22 @@ class commentDisplay(Gtk.ScrolledWindow):
 			self.comments.remove(child)
 		
 		for comment in content:
-			"add comment"
+			print("adding comment", comment)
+			c=Gtk.Frame(label=comment['username'])
+			box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+			#TODO: pretty format the time
+			box.add(Gtk.Label(comment['time']))
+			
+			combox=Gtk.TextView()
+			combox.get_buffer().set_text(comment['text'])
+			combox.set_editable(False)
+			combox.set_cursor_visible(False)
+			combox.set_wrap_mode(Gtk.WrapMode.WORD)
+			box.add(combox)
+			c.add(box)
+			self.comments.add(c)
+		self.comments.show_all()
+		self.set_size_request(panelWid, -1)
 
 class postView(Gtk.Box):
 	"""settings and stuff"""
