@@ -5,6 +5,7 @@ from gi.repository import Gtk, GObject, GdkPixbuf, Gdk
 
 import tempfile
 import cgi,posixpath
+import time
 
 import urllib.request,urllib.parse
 import os
@@ -41,12 +42,6 @@ def getName(url,content):
 imgcache={}
 
 def loadWithProgress(url, progress):
-	#if cached, use cached image
-	if url in imgcache:
-		path=imgcache[url]
-		with open(path, 'rb') as f:
-			return path,f.read()
-	
 	request=urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 	content=urllib.request.urlopen(request)
 	buff=bytes()
@@ -69,22 +64,25 @@ def loadWithProgress(url, progress):
 		return False
 	GObject.idle_add(progUpdate)
 	
+	timer=time.time()
 	while True:
 		read=content.read(blocksize)
 		if read:
 			buff+=read
 		else:
 			break
+	timer=time.time()-timer
+	
+	def cut(num):
+		return int(num*100)/100
+	
+	print("{}\n\ttook {} seconds, speed was {} KB/s".format(url, cut(timer), cut(len(buff)/(timer*1024))))
 	
 	#cache the image
 	path=tempdir+domain
 	if not os.path.exists(path):
 		os.mkdir(path)
 	path="{}/{}".format(path,name)
-	
-	with open(path,'wb+') as f:
-		f.write(buff)
-		imgcache[url]=path
 	
 	return path, name,buff
 
@@ -173,7 +171,11 @@ class DynamicMedia(Gtk.EventBox):
 				self.generateDrag()
 			
 		elif url:
-			#TODO:if url is cached, load it from cache and return before any of this
+			#if cached, use cached image
+			if url in imgcache:
+				self.load(path=imgcache[url])
+				return
+			
 			loadbar=Gtk.ProgressBar()
 			#if this is unset, then the displayed text will be the load percent
 			#that said,
@@ -185,7 +187,9 @@ class DynamicMedia(Gtk.EventBox):
 				
 				loader=GdkPixbuf.PixbufLoader()
 				
-				self.path,self.name,buff=loadWithProgress(url, loadbar)
+				#these need to be stored separate from the self versions to prevent race conditions in cache
+				path, name,buff=loadWithProgress(url, loadbar)
+				(self.path,self.name)=(path, name)
 				loader.write(buff)
 				loader.close()
 				
@@ -203,6 +207,11 @@ class DynamicMedia(Gtk.EventBox):
 					return False
 				
 				GObject.idle_add(finish)
+				
+				#flush to disk in background
+				with open(path,'wb+') as f:
+					f.write(buff)
+					imgcache[url]=path
 			
 			t=Thread(target=asyncload, daemon=True)
 			t.start()
@@ -237,6 +246,7 @@ class DynamicMedia(Gtk.EventBox):
 		return True
 	
 	def saveDialog(self, rootwin=None):
+		#TODO: wait (in bg thread) to ensure disk file is fully written before opening save dialog
 		if not self.path:
 			print("no image loaded, cant save")
 			return
@@ -249,8 +259,6 @@ class DynamicMedia(Gtk.EventBox):
 			Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
 		)
 		
-		#TODO: remember path
-		#TODO: give default name
 		print("default name should be:", self.name)
 		dialog.set_current_folder(self.lastPath)
 		dialog.set_current_name(self.name)
