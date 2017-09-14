@@ -73,10 +73,7 @@ def loadWithProgress(url, progress):
 			break
 	timer=time.time()-timer
 	
-	def cut(num):
-		return int(num*100)/100
-	
-	print("{}\n\ttook {} seconds, speed was {} KB/s".format(url, cut(timer), cut(len(buff)/(timer*1024))))
+	print("{}\n\ttook {:.2f} seconds, speed was {:.2f} KB/s".format(url, timer, len(buff)/(timer*1024)))
 	
 	#cache the image
 	path=tempdir+domain
