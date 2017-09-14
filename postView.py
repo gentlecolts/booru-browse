@@ -108,6 +108,8 @@ class commentDisplay(Gtk.ScrolledWindow):
 			combox.set_editable(False)
 			combox.set_cursor_visible(False)
 			combox.set_wrap_mode(Gtk.WrapMode.WORD)
+			combox.set_left_margin(2)
+			combox.set_bottom_margin(2)
 			
 			#put it all together
 			box.add(combox)
