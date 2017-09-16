@@ -6,7 +6,6 @@ from gi.repository import Gtk, GObject, GdkPixbuf, Gdk
 import tempfile
 import cgi,posixpath
 import time
-
 import urllib.request,urllib.parse
 import os
 from shutil import copyfile
@@ -26,7 +25,7 @@ scale_method=GdkPixbuf.InterpType.BILINEAR
 DRAG_ACTION = Gdk.DragAction.COPY
 
 tempdirobj=tempfile.TemporaryDirectory(prefix="booru-browse-")
-tempdir=tempdirobj.name+"/"
+tempdir=tempdirobj.name
 print("using tempdir:",tempdir)
 
 def getName(url,content):
@@ -76,7 +75,7 @@ def loadWithProgress(url, progress):
 	print("{}\n\ttook {:.2f} seconds, speed was {:.2f} KB/s".format(url, timer, len(buff)/(timer*1024)))
 	
 	#cache the image
-	path=tempdir+domain
+	path=os.path.join(tempdir, domain)
 	if not os.path.exists(path):
 		os.mkdir(path)
 	path="{}/{}".format(path,name)
